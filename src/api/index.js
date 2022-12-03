@@ -3,6 +3,7 @@ import { toast, ToastContainer } from "react-toastify"
 
 // create an axios instance
 // https://ryh8y98aga.us-west-2.awsapprunner.com/
+console.log(process.env)
 const service = axios.create({
   baseURL: process.env.NODE_ENV == "development" ? "http://localhost:8080" : " https://ryh8y98aga.us-west-2.awsapprunner.com",
   timeout: 50000,

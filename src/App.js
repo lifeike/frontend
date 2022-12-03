@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.css"
 import * as Auth from "./pages/auth"
 
 function App() {
-  console.log(process.env)
   return (
     <>
       <h1>{process.env.NODE_ENV}</h1>
