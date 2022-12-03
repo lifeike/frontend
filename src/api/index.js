@@ -6,6 +6,7 @@ import { toast, ToastContainer } from "react-toastify"
 console.log(process.env)
 console.log(process.env.REACT_APP_NOT_SECRET_CODE)
 console.log(process.env.NODE_ENV == "development")
+//trigger
 const service = axios.create({
   baseURL: process.env.NODE_ENV == "development" ? "http://localhost:8080" : " https://ryh8y98aga.us-west-2.awsapprunner.com",
   timeout: 50000,
