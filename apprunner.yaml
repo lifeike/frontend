@@ -1,16 +1,9 @@
-version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - npm ci
+version: 1.0
+runtime: Nodejs 16
+build:
+  commands:
     build:
-      commands:
-        - npm run build
-  artifacts:
-    baseDirectory: build
-    files:
-      - "**/*"
-  cache:
-    paths:
-      - node_modules/**/*
+      - npm install
+      - npm install -g serve
+run:
+  command: serve -s build
