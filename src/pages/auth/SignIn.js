@@ -45,19 +45,16 @@ const SignIn = (props) => {
 
   return (
     <>
-      <div className="flex justify-between border border-black">
-        <Box sx={{ width: "100%" }}>
-          <Collapse orientation="horizontal" in={checked} collapsedSize={"50%"} timeout={3000}>
-            {/* {icon} */}
-          </Collapse>
-        </Box>
-        <div className=" text-red-200"> hello world</div>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input defaultValue="feeco" {...register("userName")} />
-          <input defaultValue="lifeike1992" {...register("password")} />
-          <input type="submit" />
-        </form>
-      </div>
+      <Box sx={{ width: "100%", height: "100%" }}>
+        <Collapse orientation="horizontal" in={checked} collapsedSize={"50%"} timeout={3000}>
+          {icon}
+        </Collapse>
+      </Box>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input className="border border-black block" defaultValue="feeco" {...register("userName")} />
+        <input className="border border-black block" defaultValue="lifeike1992" {...register("password")} />
+        <input className="block" type="submit" />
+      </form>
     </>
   )
 }
