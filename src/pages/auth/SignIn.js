@@ -48,10 +48,10 @@ const SignIn = (props) => {
       <div className="flex justify-between border border-black">
         <Box sx={{ width: "100%" }}>
           <Collapse orientation="horizontal" in={checked} collapsedSize={"50%"} timeout={3000}>
-            {icon}
+            {/* {icon} */}
           </Collapse>
         </Box>
-        <div> hello world</div>
+        <div className=" text-red-200"> hello world</div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input defaultValue="feeco" {...register("userName")} />
           <input defaultValue="lifeike1992" {...register("password")} />
