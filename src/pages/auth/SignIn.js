@@ -10,12 +10,6 @@ import Paper from "@mui/material/Paper"
 import Collapse from "@mui/material/Collapse"
 import FormControlLabel from "@mui/material/FormControlLabel"
 
-const icon = (
-  <Paper sx={{ m: 1 }} elevation={4}>
-    <img src={require("../../assets/img/car.jpg")} alt=""></img>
-  </Paper>
-)
-
 const SignIn = (props) => {
   const n = useNavigate()
   const {
@@ -47,16 +41,18 @@ const SignIn = (props) => {
     <div className="flex">
       <Box sx={{ width: "100%", height: "100%" }}>
         <Collapse orientation="horizontal" in={checked} collapsedSize={"50%"} timeout={3000}>
-          {icon}
-        </Collapse>
-      </Box>
-      <Box sx={{ width: "100%", height: "100%" }}>
-        <Collapse orientation="horizontal" in={checked} collapsedSize={"50%"} timeout={3000}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input className="border border-black block" defaultValue="feeco" {...register("userName")} />
-            <input className="border border-black block" defaultValue="lifeike1992" {...register("password")} />
-            <input className="block" type="submit" />
-          </form>
+          <Paper sx={{ m: 1 }} elevation={4}>
+            <div className="grid grid-cols-2">
+              <img src={require("../../assets/img/car.jpg")} alt=""></img>
+              <div className="grid place-items-center">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <input className="border border-black block" defaultValue="feeco" {...register("userName")} />
+                  <input className="border border-black block" defaultValue="lifeike1992" {...register("password")} />
+                  <input className="block" type="submit" />
+                </form>
+              </div>
+            </div>
+          </Paper>
         </Collapse>
       </Box>
     </div>
