@@ -12,7 +12,7 @@ import FormControlLabel from "@mui/material/FormControlLabel"
 
 const icon = (
   <Paper sx={{ m: 1 }} elevation={4}>
-    <img src={require("../../assets/img/car.png")} alt=""></img>
+    <img src={require("../../assets/img/car.jpg")} alt=""></img>
   </Paper>
 )
 
@@ -45,20 +45,19 @@ const SignIn = (props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input defaultValue="feeco" {...register("userName")} />
-        <input defaultValue="lifeike1992" {...register("password")} />
-        <input type="submit" />
-      </form>
-      <Box sx={{ height: 300 }}>
-        <div>
-          <Box sx={{ width: "100%" }}>
-            <Collapse orientation="horizontal" in={checked} collapsedSize={"20%"} timeout={2000}>
-              {icon}
-            </Collapse>
-          </Box>
-        </div>
-      </Box>
+      <div className="flex justify-between border border-black">
+        <Box sx={{ width: "100%" }}>
+          <Collapse orientation="horizontal" in={checked} collapsedSize={"50%"} timeout={3000}>
+            {icon}
+          </Collapse>
+        </Box>
+        <div> hello world</div>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input defaultValue="feeco" {...register("userName")} />
+          <input defaultValue="lifeike1992" {...register("password")} />
+          <input type="submit" />
+        </form>
+      </div>
     </>
   )
 }
