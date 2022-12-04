@@ -12,12 +12,9 @@ const SignIn = (props) => {
     formState: { errors },
   } = useForm()
 
-  useEffect(() => {
-    //如果已经登陆过了,就哪里来的回到哪里去,不能再看到这个sign in 页面了
-    if (localStorage.getItem("token")) {
-      n("/users")
-    }
-  }, [])
+  if (localStorage.getItem("token")) {
+    n("/users")
+  }
 
   const onSubmit = (data) => {
     signIn(data).then((res) => {
