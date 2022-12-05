@@ -2,11 +2,6 @@ import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 
 // create an axios instance
-// https://ryh8y98aga.us-west-2.awsapprunner.com/
-console.log(process.env)
-console.log(process.env.REACT_APP_NOT_SECRET_CODE)
-console.log(process.env.NODE_ENV == "development")
-//trigger
 const service = axios.create({
   // baseURL: process.env.NODE_ENV == "development" ? "http://localhost:8080" : "http://ec2-54-166-223-204.compute-1.amazonaws.com/",
   baseURL: "http://ec2-44-202-163-115.compute-1.amazonaws.com",
