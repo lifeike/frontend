@@ -3,8 +3,7 @@ import { toast, ToastContainer } from "react-toastify"
 
 // create an axios instance
 const service = axios.create({
-  // baseURL: process.env.NODE_ENV == "development" ? "http://localhost:8080" : "http://ec2-54-166-223-204.compute-1.amazonaws.com/",
-  baseURL: "http://ec2-44-202-163-115.compute-1.amazonaws.com",
+  baseURL: "",
   timeout: 50000,
   headers: { "content-type": "application/json;charset=UTF-8" },
 })
