@@ -17,11 +17,13 @@ export default function SignIn() {
     <SignInLayout>
       <form className="" onSubmit={handleSubmit(onSubmit)}>
         {/* register your input into the hook by invoking the "register" function */}
-        <input className="login-form" defaultValue="test" {...register("example")} />
+        <label>Username</label>
+        <input className="login-form" {...register("username", { required: true })} />
         {/* include validation with required or other standard HTML validation rules */}
-        <input className="login-form" {...register("exampleRequired", { required: true })} />
+        <label>Password</label>
+        <input className="login-form" {...register("password", { required: true })} />
         {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
+        {errors.password && <span>This field is required</span>}
         <div className="flex justify-between ">
           <input className="bg-red-500 login-button" type="submit" value="login in" />
           <button className="bg-blue-500 login-button" onClick={() => {}}>

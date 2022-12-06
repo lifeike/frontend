@@ -4,7 +4,7 @@
 
 @layer components {
   .login-form {
-    @apply border border-black block my-2 rounded-sm;
+    @apply border border-black block my-2 rounded-md p-2;
   }
   .login-button {
     @apply p-2 rounded-md;
