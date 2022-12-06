@@ -14,17 +14,15 @@ function App() {
       <ToastContainer />
       <Loading />
       <Routes>
-        <Route path="/">
-          <Route path="login" element={<SignIn />} />
-          <Route
-            path="/users"
-            element={
-              <Auth.RequireAuth>
-                <Users />
-              </Auth.RequireAuth>
-            }
-          />
-        </Route>
+        <Route path="/" element={<SignIn />} />
+        <Route
+          path="/users"
+          element={
+            <Auth.RequireAuth>
+              <Users />
+            </Auth.RequireAuth>
+          }
+        />
       </Routes>
     </>
   )
