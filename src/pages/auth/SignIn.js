@@ -12,11 +12,9 @@ export default function SignIn() {
   } = useForm()
   const onSubmit = (data) => console.log(data)
 
-  console.log(watch("example")) // watch input value by passing the name of it
-
   return (
     <SignInLayout>
-      <form className="" onSubmit={handleSubmit(onSubmit)}>
+      <form className="">
         {/* register your input into the hook by invoking the "register" function */}
         <label>Username</label>
         <input className="login-form" {...register("username", { required: true })} />
@@ -27,7 +25,9 @@ export default function SignIn() {
         {errors.password && <span>This field is required</span>}
         <div className="flex justify-between ">
           {/* <input className="bg-red-500 login-button" type="submit" value="login in" /> */}
-          <Button variant="contained">Login</Button>
+          <Button variant="contained" onClick={handleSubmit(onSubmit)}>
+            Login
+          </Button>
           <Button variant="outlined">Remember me</Button>
         </div>
       </form>
