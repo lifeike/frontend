@@ -32,7 +32,7 @@ const SignIn = (props) => {
           <Box>
             <Collapse orientation="horizontal" timeout={3000} in={checked} collapsedSize={"33%"}>
               <Paper>
-                <Box component="div" sx={{ width: "100vw", height: "100%" }}>
+                <Box component="div" sx={{ width: 2000, height: "100vh" }}>
                   <img src={require("@/assets/img/car.jpg")} alt=""></img>
                 </Box>
               </Paper>
