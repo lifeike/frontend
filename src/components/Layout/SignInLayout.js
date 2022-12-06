@@ -12,9 +12,14 @@ import FormControlLabel from "@mui/material/FormControlLabel"
 
 const SignIn = (props) => {
   const [checked, setChecked] = React.useState(true)
+  const [showForm, setShowForm] = useState(false)
+
   useEffect(() => {
     //shrink image on first page load
     setChecked(false)
+    setInterval(() => {
+      setShowForm(true)
+    }, 1500)
   }, [])
 
   return (
@@ -38,7 +43,7 @@ const SignIn = (props) => {
               </Paper>
             </Collapse>
           </Box>
-          <div className="absolute top-0 right-0 -z-40  w-2/3 h-full grid place-items-center ">{props.children}</div>
+          <div className={`absolute top-0 right-0  ${showForm ? "" : "-z-10"}  w-2/3 h-full grid place-items-center`}>{props.children}</div>
         </div>
       </Box>
     </Box>
