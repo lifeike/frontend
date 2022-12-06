@@ -1,16 +1,21 @@
 import React, { useState, useRef, useEffect, memo } from "react"
 import SignInLayout from "@/components/Layout/SignInLayout"
+import { connect } from "react-redux"
+import * as actionCreators from "@/store/actionCreators/user"
 import { useForm } from "react-hook-form"
 import Button from "@mui/material/Button"
 
-export default function SignIn() {
+function SignIn(props) {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm()
-  const onSubmit = (data) => console.log(data)
+
+  const onSubmit = (data) => {
+    props.signInAction(data)
+  }
 
   return (
     <SignInLayout>
@@ -31,3 +36,5 @@ export default function SignIn() {
     </SignInLayout>
   )
 }
+
+export default connect((state) => state.user, actionCreators)(SignIn)

@@ -1,7 +1,7 @@
 import { getUser, addUser, updateUser } from "@/api/user"
 import { signIn } from "@/api/auth"
 
-export function getUserAction(someValue) {
+export function signInAction(someValue) {
   return async (dispatch, getState) => {
     dispatch({ type: "loading/turnOn" })
     let response = await signIn()
