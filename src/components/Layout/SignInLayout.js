@@ -38,7 +38,7 @@ const SignIn = (props) => {
               </Paper>
             </Collapse>
           </Box>
-          <div className="absolute top-5 right-5 -z-40 border border-black w-2/3 grid place-items-center"> hello world</div>
+          <div className="absolute top-5 right-5 -z-40 border border-black w-2/3 grid place-items-center">{props.children}</div>
         </div>
       </Box>
     </Box>
