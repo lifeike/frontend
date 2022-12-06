@@ -10,7 +10,6 @@ import * as Auth from "./pages/auth"
 function App() {
   return (
     <>
-      <h1>{process.env.NODE_ENV}</h1>
       <ToastContainer />
       <Loading />
       <Routes>
