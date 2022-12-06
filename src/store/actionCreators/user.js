@@ -1,4 +1,14 @@
-import { getUser, addUser, updateUser } from "../../api/user"
+import { getUser, addUser, updateUser } from "@/api/user"
+import { signIn } from "@/api/auth"
+
+export function getUserAction(someValue) {
+  return async (dispatch, getState) => {
+    dispatch({ type: "loading/turnOn" })
+    let response = await signIn()
+    // dispatch({ type: "users/setUser", payload: response })
+    dispatch({ type: "loading/turnOff" })
+  }
+}
 
 export function getUserAction(someValue) {
   return async (dispatch, getState) => {
