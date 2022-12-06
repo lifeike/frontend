@@ -18,7 +18,7 @@ const SignIn = (props) => {
     //shrink image on first page load
     setChecked(false)
     setInterval(() => {
-      setShowForm(true)
+      setShowForm(true) //show form after 1.5 second
     }, 1500)
   }, [])
 
