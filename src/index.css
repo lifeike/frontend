@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .login-form {
+    @apply border border-black block my-2 rounded-sm;
+  }
+  .login-button {
+    @apply p-2 rounded-md;
+  }
+}
