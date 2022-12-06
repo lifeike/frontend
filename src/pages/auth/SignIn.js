@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, memo } from "react"
 import SignInLayout from "@/components/Layout/SignInLayout"
 import { useForm } from "react-hook-form"
+import Button from "@mui/material/Button"
 
 export default function SignIn() {
   const {
@@ -25,10 +26,9 @@ export default function SignIn() {
         {/* errors will return when field validation fails  */}
         {errors.password && <span>This field is required</span>}
         <div className="flex justify-between ">
-          <input className="bg-red-500 login-button" type="submit" value="login in" />
-          <button className="bg-blue-500 login-button" onClick={() => {}}>
-            remember me
-          </button>
+          {/* <input className="bg-red-500 login-button" type="submit" value="login in" /> */}
+          <Button variant="contained">Login</Button>
+          <Button variant="outlined">Remember me</Button>
         </div>
       </form>
     </SignInLayout>
