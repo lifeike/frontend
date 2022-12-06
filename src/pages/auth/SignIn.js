@@ -1,24 +1,31 @@
 import React, { useState, useRef, useEffect, memo } from "react"
 import SignInLayout from "@/components/Layout/SignInLayout"
+import { useForm } from "react-hook-form"
 
-const SignIn = (props) => {
+export default function SignIn() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
+  const onSubmit = (data) => console.log(data)
+
+  console.log(watch("example")) // watch input value by passing the name of it
+
   return (
     <SignInLayout>
-      <div>
-        <div>form </div>
-        <div>form </div>
-        <div>form </div>
-        <div>form </div>
-        <div>form </div>
-        <div>form </div>
-        <div>form </div>
-        <div>form </div>
-        <div>form </div>
-        <div>form </div>
-        <div>form </div>
-      </div>
+      {/* "handleSubmit" will validate your inputs before invoking "onSubmit"  */}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {/* register your input into the hook by invoking the "register" function */}
+        <input defaultValue="test" {...register("example")} />
+        {/* include validation with required or other standard HTML validation rules */}
+        <input {...register("exampleRequired", { required: true })} />
+        {/* errors will return when field validation fails  */}
+        {errors.exampleRequired && <span>This field is required</span>}
+
+        <input type="submit" />
+      </form>
     </SignInLayout>
   )
 }
-
-export default SignIn
