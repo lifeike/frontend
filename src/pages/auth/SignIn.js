@@ -10,52 +10,49 @@ import Paper from "@mui/material/Paper"
 import Collapse from "@mui/material/Collapse"
 import FormControlLabel from "@mui/material/FormControlLabel"
 
+const icon = (
+  <Paper sx={{ m: 1 }} elevation={4}>
+    <Box component="svg" sx={{ width: 100, height: 100 }}>
+      <Box
+        component="polygon"
+        sx={{
+          fill: (theme) => theme.palette.common.white,
+          stroke: (theme) => theme.palette.divider,
+          strokeWidth: 1,
+        }}
+        points="0,100 50,00, 100,100"
+      />
+    </Box>
+  </Paper>
+)
+
 const SignIn = (props) => {
-  const n = useNavigate()
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm()
-
-  if (localStorage.getItem("token")) {
-    n("/users")
-  }
-
-  const onSubmit = (data) => {
-    signIn(data).then((res) => {
-      localStorage.setItem("token", res.token)
-      localStorage.setItem("refresh-token", res.refreshToken)
-      localStorage.setItem("user", JSON.stringify(res.user))
-      n("/users")
-    })
-  }
-
   const [checked, setChecked] = React.useState(true)
-  useEffect(() => {
-    setChecked(false)
-  }, [])
+  const handleChange = () => {
+    setChecked((prev) => !prev)
+  }
 
   return (
-    <div className="flex">
-      <Box sx={{ width: "100%", height: "100%" }}>
-        <Collapse orientation="horizontal" in={checked} collapsedSize={"50%"} timeout={3000}>
-          <Paper sx={{ m: 1 }} elevation={4}>
-            <div className="grid grid-cols-2">
-              <img src={require("../../assets/img/car.jpg")} alt=""></img>
-              <div className="grid place-items-center">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <input className="border border-black block" defaultValue="feeco" {...register("userName")} />
-                  <input className="border border-black block" defaultValue="lifeike1992" {...register("password")} />
-                  <input className="block" type="submit" />
-                </form>
-              </div>
-            </div>
-          </Paper>
-        </Collapse>
+    <Box sx={{ height: 300 }}>
+      <FormControlLabel control={<Switch checked={checked} onChange={handleChange} />} label="Show" />
+      <Box
+        sx={{
+          "& > :not(style)": {
+            display: "flex",
+            justifyContent: "space-around",
+            height: 120,
+            width: 250,
+          },
+        }}>
+        <div>
+          <Box sx={{ width: "50%" }}>
+            <Collapse orientation="horizontal" in={checked} collapsedSize={40}>
+              {icon}
+            </Collapse>
+          </Box>
+        </div>
       </Box>
-    </div>
+    </Box>
   )
 }
 
