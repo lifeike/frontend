@@ -16,7 +16,7 @@ const UserList = (props) => {
   const [selectedUser, setSelectedUser] = useState()
 
   useEffect(() => {
-    props.getUserAction()
+    props.getMoive()
   }, [])
 
   const selectUser = async (user) => {

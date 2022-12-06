@@ -1,4 +1,4 @@
-import axios from "../api"
+import axios from "./index"
 
 export function getUser(data) {
   return axios({
