@@ -4,17 +4,19 @@ import SignInLayout from "@/components/Layout/SignInLayout"
 const SignIn = (props) => {
   return (
     <SignInLayout>
-      <div>form </div>
-      <div>form </div>
-      <div>form </div>
-      <div>form </div>
-      <div>form </div>
-      <div>form </div>
-      <div>form </div>
-      <div>form </div>
-      <div>form </div>
-      <div>form </div>
-      <div>form </div>
+      <div>
+        <div>form </div>
+        <div>form </div>
+        <div>form </div>
+        <div>form </div>
+        <div>form </div>
+        <div>form </div>
+        <div>form </div>
+        <div>form </div>
+        <div>form </div>
+        <div>form </div>
+        <div>form </div>
+      </div>
     </SignInLayout>
   )
 }

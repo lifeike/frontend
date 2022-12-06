@@ -14,7 +14,7 @@ const SignIn = (props) => {
   const [checked, setChecked] = React.useState(true)
   useEffect(() => {
     //shrink image on first page load
-    setChecked((prev) => !prev)
+    setChecked(false)
   }, [])
 
   return (
@@ -28,17 +28,17 @@ const SignIn = (props) => {
             width: "full",
           },
         }}>
-        <div className="relative">
+        <div className="">
           <Box>
             <Collapse orientation="horizontal" timeout={3000} in={checked} collapsedSize={"33%"}>
-              <Paper elevation={4}>
-                <Box component="div" sx={{ width: "100vw", height: "100vh" }}>
+              <Paper>
+                <Box component="div" sx={{ width: "100vw", height: "100%" }}>
                   <img src={require("@/assets/img/car.jpg")} alt=""></img>
                 </Box>
               </Paper>
             </Collapse>
           </Box>
-          <div className="absolute top-5 right-5 -z-40 border border-black w-2/3 grid place-items-center">{props.children}</div>
+          <div className="absolute top-0 right-0 -z-40  w-2/3 h-full grid place-items-center ">{props.children}</div>
         </div>
       </Box>
     </Box>
