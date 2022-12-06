@@ -29,7 +29,7 @@ const SignIn = (props) => {
             width: "full",
           },
         }}>
-        <div>
+        <div className="relative">
           <Box>
             <Collapse orientation="horizontal" timeout={3000} in={checked} collapsedSize={"33%"}>
               <Paper elevation={4}>
@@ -39,8 +39,8 @@ const SignIn = (props) => {
               </Paper>
             </Collapse>
           </Box>
+          <div className="absolute top-5 right-5 -z-40"> hello world</div>
         </div>
-        <div className="w-full h-full border border-black"> hello wrold</div>
       </Box>
     </Box>
   )
