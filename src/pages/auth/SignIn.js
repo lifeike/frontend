@@ -10,47 +10,37 @@ import Paper from "@mui/material/Paper"
 import Collapse from "@mui/material/Collapse"
 import FormControlLabel from "@mui/material/FormControlLabel"
 
-const icon = (
-  <Paper sx={{ m: 1 }} elevation={4}>
-    <Box component="svg" sx={{ width: 100, height: 100 }}>
-      <Box
-        component="polygon"
-        sx={{
-          fill: (theme) => theme.palette.common.white,
-          stroke: (theme) => theme.palette.divider,
-          strokeWidth: 1,
-        }}
-        points="0,100 50,00, 100,100"
-      />
-    </Box>
-  </Paper>
-)
-
 const SignIn = (props) => {
   const [checked, setChecked] = React.useState(true)
-  const handleChange = () => {
+
+  useEffect(() => {
+    //shrink image on first page load
     setChecked((prev) => !prev)
-  }
+  }, [])
 
   return (
     <Box sx={{ height: 300 }}>
-      <FormControlLabel control={<Switch checked={checked} onChange={handleChange} />} label="Show" />
       <Box
         sx={{
           "& > :not(style)": {
-            display: "flex",
+            // display: "flex",
             justifyContent: "space-around",
-            height: 120,
-            width: 250,
+            // height: 120,
+            width: "full",
           },
         }}>
         <div>
-          <Box sx={{ width: "50%" }}>
-            <Collapse orientation="horizontal" in={checked} collapsedSize={40}>
-              {icon}
+          <Box>
+            <Collapse orientation="horizontal" timeout={3000} in={checked} collapsedSize={500}>
+              <Paper sx={{ m: 1 }} elevation={4}>
+                <Box component="div" sx={{ width: 2000, height: "100%" }}>
+                  <img src={require("@/assets/img/car.jpg")} alt=""></img>
+                </Box>
+              </Paper>
             </Collapse>
           </Box>
         </div>
+        <div className="w-full h-full border border-black"> hello wrold</div>
       </Box>
     </Box>
   )
