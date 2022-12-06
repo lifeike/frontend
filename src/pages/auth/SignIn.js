@@ -15,7 +15,6 @@ export default function SignIn() {
 
   return (
     <SignInLayout>
-      {/* "handleSubmit" will validate your inputs before invoking "onSubmit"  */}
       <form className="" onSubmit={handleSubmit(onSubmit)}>
         {/* register your input into the hook by invoking the "register" function */}
         <input className="login-form" defaultValue="test" {...register("example")} />
@@ -24,7 +23,7 @@ export default function SignIn() {
         {/* errors will return when field validation fails  */}
         {errors.exampleRequired && <span>This field is required</span>}
         <div className="flex justify-between ">
-          <input className="bg-red-500 login-button" type="submit" />
+          <input className="bg-red-500 login-button" type="submit" value="login in" />
           <button className="bg-blue-500 login-button" onClick={() => {}}>
             remember me
           </button>
