@@ -5,6 +5,8 @@ export function signInAction(someValue) {
   return async (dispatch, getState) => {
     dispatch({ type: "loading/turnOn" })
     let response = await signIn()
+    console.log(response)
+    localStorage.setItem("token", response.token)
     // dispatch({ type: "users/setUser", payload: response })
     dispatch({ type: "loading/turnOff" })
   }
