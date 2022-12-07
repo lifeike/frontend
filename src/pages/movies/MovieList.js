@@ -49,8 +49,8 @@ const MovieList = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.movieList &&
-              props.movieList.map((row, index) => (
+            {props.movieTable.movieList &&
+              props.movieTable.movieList.map((row, index) => (
                 <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                   <TableCell align="center">{row.Title}</TableCell>
                   <TableCell align="center">{row["Creative Type"]}</TableCell>
@@ -76,7 +76,7 @@ const MovieList = (props) => {
       <br></br>
       <div className="grid place-items-center">
         <Stack spacing={2}>
-          <Pagination count={10} page={page} onChange={handleChange} />
+          <Pagination count={Math.round(props.movieTable.totalPages)} page={page} onChange={handleChange} />
         </Stack>
       </div>
     </div>

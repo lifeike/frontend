@@ -1,15 +1,15 @@
 const reducer = (
   state = {
-    movieList: [],
+    movieTable: {},
     selectedMovie: {},
   },
   action
 ) => {
   switch (action.type) {
-    case "movie/getMovies":
-      return { ...state, movieList: action.payload }
-    case "movie/setMovieList":
-      return { ...state, movieList: action.payload }
+    case "movie/getMovieTable":
+      return { ...state, movieTable: action.payload }
+    case "movie/setMovieTable":
+      return { ...state, movieTable: action.payload }
     case "movie/selectMovie":
       return { ...state, selectedMovie: action.payload }
     default:
