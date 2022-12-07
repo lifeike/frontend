@@ -8,9 +8,9 @@ const reducer = (
   switch (action.type) {
     case "movie/getMovies":
       return { ...state, movieList: action.payload }
-    case "movie/setUser":
+    case "movie/setMovieList":
       return { ...state, movieList: action.payload }
-    case "movie/selectUser":
+    case "movie/selectMovie":
       return { ...state, selectedMovie: action.payload }
     default:
       return state
