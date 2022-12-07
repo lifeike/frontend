@@ -1,4 +1,5 @@
 import Movies from "./pages/movies"
+import EditMovie from "./pages/movies/EditMovie"
 import SignIn from "./pages/auth/SignIn"
 import { Routes, Route, Outlet, Link } from "react-router-dom"
 import Loading from "./components/Loading"
@@ -15,10 +16,18 @@ function App() {
       <Routes>
         <Route path="/" element={<SignIn />} />
         <Route
-          path="/users"
+          path="/movies"
           element={
             <Auth.RequireAuth>
               <Movies />
+            </Auth.RequireAuth>
+          }
+        />
+        <Route
+          path="/edit-movie/:id"
+          element={
+            <Auth.RequireAuth>
+              <EditMovie />
             </Auth.RequireAuth>
           }
         />
