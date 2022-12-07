@@ -1,4 +1,4 @@
-import Users from "./pages/users"
+import Movies from "./pages/movies"
 import SignIn from "./pages/auth/SignIn"
 import { Routes, Route, Outlet, Link } from "react-router-dom"
 import Loading from "./components/Loading"
@@ -18,7 +18,7 @@ function App() {
           path="/users"
           element={
             <Auth.RequireAuth>
-              <Users />
+              <Movies />
             </Auth.RequireAuth>
           }
         />

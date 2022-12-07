@@ -16,7 +16,6 @@ const MovieList = (props) => {
 
   useEffect(() => {
     props.getMovieAction()
-    console.log(props.movieList)
   }, [])
 
   const selectUser = async (user) => {
@@ -34,7 +33,8 @@ const MovieList = (props) => {
               <TableCell align="center">Director</TableCell>
               <TableCell align="center">IMDB Votes</TableCell>
               <TableCell align="center">Release Date</TableCell>
-              <TableCell align="left">Source</TableCell>
+              <TableCell align="center">Source</TableCell>
+              <TableCell align="left">Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -42,10 +42,11 @@ const MovieList = (props) => {
               props.movieList.map((row, index) => (
                 <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                   <TableCell align="center">{row.Title}</TableCell>
-                  <TableCell align="center">{row.last_name}</TableCell>
-                  <TableCell align="center">{row.email}</TableCell>
-                  <TableCell align="center">{row.gender}</TableCell>
-                  <TableCell align="center">{row.ip_address}</TableCell>
+                  <TableCell align="center">{row["Creative Type"]}</TableCell>
+                  <TableCell align="center">{row.Director}</TableCell>
+                  <TableCell align="center">{row["IMDB Votes"]}</TableCell>
+                  <TableCell align="center">{row["Release Date"]}</TableCell>
+                  <TableCell align="center">{row.source}</TableCell>
                   <TableCell align="left">
                     <button onClick={() => selectUser(row)}>
                       <EditIcon />
