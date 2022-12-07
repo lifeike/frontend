@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, memo } from "react"
-import * as actionCreators from "../../store/actionCreators/user"
+import * as actionCreators from "../../store/actionCreators/movie"
 import { connect } from "react-redux"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
@@ -11,12 +11,13 @@ import Paper from "@mui/material/Paper"
 import EditIcon from "@mui/icons-material/Edit"
 import DeleteIcon from "@mui/icons-material/Delete"
 
-const UserList = (props) => {
+const MovieList = (props) => {
   const [data, setData] = useState([])
   const [selectedUser, setSelectedUser] = useState()
 
   useEffect(() => {
-    props.getMoive()
+    console.log(props)
+    props.getMovieAction()
   }, [])
 
   const selectUser = async (user) => {
@@ -38,8 +39,8 @@ const UserList = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {props.userList &&
-              props.userList.map((row, index) => (
+            {props.movieList &&
+              props.movieList.map((row, index) => (
                 <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                   <TableCell align="center">{row.first_name}</TableCell>
                   <TableCell align="center">{row.last_name}</TableCell>
@@ -65,4 +66,4 @@ const UserList = (props) => {
 }
 
 // export default Test
-export default connect((state) => state.user, actionCreators)(UserList)
+export default connect((state) => state.movie, actionCreators)(MovieList)
