@@ -2,8 +2,9 @@ import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 
 // create an axios instance
+console.log(process.env.NODE_ENV)
 const service = axios.create({
-  baseURL: "http://localhost:3000/api/v1",
+  baseURL: process.env.NODE_ENV == "development" ? "http://localhost:3000/api/localhost" : "http://localhost:3000/api/v1",
   timeout: 50000,
   headers: { "content-type": "application/json;charset=UTF-8" },
 })

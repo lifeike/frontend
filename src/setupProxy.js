@@ -12,12 +12,12 @@ module.exports = function (app) {
     })
   ),
     app.use(
-      "/otherProxy",
+      "/api/localhost",
       createProxyMiddleware({
-        target: "http://ec2-44-202-163-115.compute-1.amazonaws.com",
+        target: "http://localhost:8080",
         changeOrigin: true,
         pathRewrite: {
-          "^/otherProxy": "",
+          "^/api/localhost": "",
         },
       })
     )
