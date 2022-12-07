@@ -12,11 +12,11 @@ import EditIcon from "@mui/icons-material/Edit"
 import DeleteIcon from "@mui/icons-material/Delete"
 
 const MovieList = (props) => {
-  const [data, setData] = useState([])
   const [selectedUser, setSelectedUser] = useState()
 
   useEffect(() => {
     props.getMovieAction()
+    console.log(props.movieList)
   }, [])
 
   const selectUser = async (user) => {
