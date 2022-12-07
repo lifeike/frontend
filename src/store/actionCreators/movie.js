@@ -1,9 +1,9 @@
-import { getMovie } from "@/api/movie"
+import * as movieApi from "@/api/movie"
 
-export function getMovieAction(data) {
+export function getMovie(data) {
   return async (dispatch, getState) => {
     dispatch({ type: "loading/turnOn" })
-    let response = await getMovie(data)
+    let response = await movieApi.getMovie(data)
     dispatch({ type: "movie/setMovieTable", payload: response })
     dispatch({ type: "loading/turnOff" })
   }

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, memo } from "react"
+import { useNavigate } from "react-router-dom"
 import * as actionCreators from "../../store/actionCreators/movie"
 import { connect } from "react-redux"
 import Table from "@mui/material/Table"
@@ -15,10 +16,11 @@ import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
 
 const MovieList = (props) => {
+  const navigate = useNavigate()
   const [selectedUser, setSelectedUser] = useState()
   //load movies
   useEffect(() => {
-    props.getMovieAction({ items_per_page: 10, page_number: 100 })
+    props.getMovie({ items_per_page: 10, page_number: 100 })
   }, [])
 
   //select movie or delete movie
@@ -29,9 +31,8 @@ const MovieList = (props) => {
   //pagination
   const [page, setPage] = React.useState(1)
   const handleChange = (event, value) => {
-    props.getMovieAction({ items_per_page: 10, page_number: value })
+    props.getMovie({ items_per_page: 10, page_number: value })
     setPage(value)
-    console.log(value)
   }
 
   return (
@@ -60,7 +61,7 @@ const MovieList = (props) => {
                   <TableCell align="center">{row["Release Date"]}</TableCell>
                   <TableCell align="center">{row.source}</TableCell>
                   <TableCell align="left">
-                    <button onClick={() => selectUser(row)}>
+                    <button onClick={() => navigate(`/edit-movie/${row._id}`)}>
                       <EditIcon />
                     </button>
                     &nbsp; &nbsp; &nbsp;
