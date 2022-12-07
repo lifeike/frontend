@@ -29,6 +29,7 @@ const MovieList = (props) => {
   //pagination
   const [page, setPage] = React.useState(1)
   const handleChange = (event, value) => {
+    props.getMovieAction({ items_per_page: 10, page_number: value })
     setPage(value)
     console.log(value)
   }
@@ -76,7 +77,7 @@ const MovieList = (props) => {
       <br></br>
       <div className="grid place-items-center">
         <Stack spacing={2}>
-          <Pagination count={Math.round(props.movieTable.totalPages)} page={page} onChange={handleChange} />
+          <Pagination count={Math.round(+props.movieTable.totalPages)} page={page} onChange={handleChange} />
         </Stack>
       </div>
     </div>
