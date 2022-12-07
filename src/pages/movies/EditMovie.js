@@ -5,6 +5,9 @@ import HomeLayout from "@/components/Layout/HomeLayout"
 
 const EditMovie = (props) => {
   const { id } = useParams()
+  useEffect(() => {
+    //get movie by id
+  }, [])
 
   return (
     <HomeLayout>
