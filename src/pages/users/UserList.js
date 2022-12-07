@@ -16,7 +16,6 @@ const MovieList = (props) => {
   const [selectedUser, setSelectedUser] = useState()
 
   useEffect(() => {
-    console.log(props)
     props.getMovieAction()
   }, [])
 
@@ -30,19 +29,19 @@ const MovieList = (props) => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="center">First Name</TableCell>
-              <TableCell align="center">Last Name</TableCell>
-              <TableCell align="center">Email</TableCell>
-              <TableCell align="center">Gender</TableCell>
-              <TableCell align="center">IP Address</TableCell>
-              <TableCell align="left">Action</TableCell>
+              <TableCell align="center">Title</TableCell>
+              <TableCell align="center">Type</TableCell>
+              <TableCell align="center">Director</TableCell>
+              <TableCell align="center">IMDB Votes</TableCell>
+              <TableCell align="center">Release Date</TableCell>
+              <TableCell align="left">Source</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {props.movieList &&
               props.movieList.map((row, index) => (
                 <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-                  <TableCell align="center">{row.first_name}</TableCell>
+                  <TableCell align="center">{row.Title}</TableCell>
                   <TableCell align="center">{row.last_name}</TableCell>
                   <TableCell align="center">{row.email}</TableCell>
                   <TableCell align="center">{row.gender}</TableCell>
