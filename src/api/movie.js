@@ -7,3 +7,12 @@ export function getMovie(data) {
     params: data,
   })
 }
+
+export function findMovie(data) {
+  console.log(data)
+  return axios({
+    url: `/movie/findOneMovie`,
+    method: "post",
+    data,
+  })
+}

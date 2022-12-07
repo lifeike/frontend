@@ -1,12 +1,15 @@
 import React, { useState, useRef, useEffect, memo } from "react"
 import { useParams, useSearchParams } from "react-router-dom"
+import { connect } from "react-redux"
+import * as actionCreators from "@/store/actionCreators/movie"
 
 import HomeLayout from "@/components/Layout/HomeLayout"
+import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory"
 
 const EditMovie = (props) => {
   const { id } = useParams()
   useEffect(() => {
-    //get movie by id
+    props.findMovie({ id })
   }, [])
 
   return (
@@ -19,4 +22,4 @@ const EditMovie = (props) => {
   )
 }
 
-export default EditMovie
+export default connect((state) => state.movie, actionCreators)(EditMovie)

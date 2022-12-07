@@ -10,7 +10,7 @@ const reducer = (
       return { ...state, movieTable: action.payload }
     case "movie/setMovieTable":
       return { ...state, movieTable: action.payload }
-    case "movie/selectMovie":
+    case "movie/selectedMovie":
       return { ...state, selectedMovie: action.payload }
     default:
       return state
