@@ -5,18 +5,21 @@ import * as actionCreators from "@/store/actionCreators/movie"
 
 import HomeLayout from "@/components/Layout/HomeLayout"
 import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory"
+import { ConstructionOutlined } from "@mui/icons-material"
 
 const EditMovie = (props) => {
   const { id } = useParams()
+  const [movie, setMovie] = useState({})
+
   useEffect(() => {
-    props.findMovie({ id })
+    props.findMovie({ id }).then((res) => setMovie(res))
   }, [])
 
   return (
     <HomeLayout>
       <div>
         <h2>EditMovie</h2>
-        <div>{id}</div>
+        <div>{movie.Title}</div>
       </div>
     </HomeLayout>
   )
