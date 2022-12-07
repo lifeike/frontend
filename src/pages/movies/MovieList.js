@@ -10,16 +10,27 @@ import TableRow from "@mui/material/TableRow"
 import Paper from "@mui/material/Paper"
 import EditIcon from "@mui/icons-material/Edit"
 import DeleteIcon from "@mui/icons-material/Delete"
+import Typography from "@mui/material/Typography"
+import Pagination from "@mui/material/Pagination"
+import Stack from "@mui/material/Stack"
 
 const MovieList = (props) => {
   const [selectedUser, setSelectedUser] = useState()
-
+  //load movies
   useEffect(() => {
     props.getMovieAction()
   }, [])
 
+  //select movie or delete movie
   const selectUser = async (user) => {
     props.selectUserAction(user)
+  }
+
+  //pagination
+  const [page, setPage] = React.useState(1)
+  const handleChange = (event, value) => {
+    setPage(value)
+    console.log(value)
   }
 
   return (
@@ -61,6 +72,13 @@ const MovieList = (props) => {
           </TableBody>
         </Table>
       </TableContainer>
+      <br></br>
+      <br></br>
+      <div className="grid place-items-center">
+        <Stack spacing={2}>
+          <Pagination count={10} page={page} onChange={handleChange} />
+        </Stack>
+      </div>
     </div>
   )
 }
