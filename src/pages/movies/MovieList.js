@@ -18,7 +18,7 @@ const MovieList = (props) => {
   const [selectedUser, setSelectedUser] = useState()
   //load movies
   useEffect(() => {
-    props.getMovieAction()
+    props.getMovieAction({ items_per_page: 10, page_number: 100 })
   }, [])
 
   //select movie or delete movie
