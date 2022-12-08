@@ -19,7 +19,11 @@ const EditMovie = (props) => {
     formState: { errors },
   } = useForm()
   const onSubmit = (data) => {
+    let newMovie = {}
+    newMovie.id = id
+    newMovie.object = data
     console.log(data)
+    props.updateMovie(newMovie)
   }
 
   useEffect(() => {

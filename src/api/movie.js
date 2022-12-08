@@ -19,8 +19,8 @@ export function findMovie(data) {
 export function updateMovie(data) {
   console.log(data)
   return axios({
-    url: `/movie/updateMovie`,
+    url: `/movie/updateMovie/${data.id}`,
     method: "post",
-    data,
+    data: data.object,
   })
 }

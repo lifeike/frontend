@@ -17,3 +17,13 @@ export function findMovie(data) {
     return response
   }
 }
+
+export function updateMovie(data) {
+  return async (dispatch, getState) => {
+    let updateResponse = await movieApi.updateMovie(data)
+    let getReponse = await movieApi.getMovie(data)
+    dispatch({ type: "movie/setMovieTable", payload: getReponse })
+    console.log(updateResponse)
+    return updateResponse
+  }
+}
