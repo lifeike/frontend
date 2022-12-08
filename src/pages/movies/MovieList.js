@@ -23,9 +23,10 @@ const MovieList = (props) => {
     props.getMovie({ items_per_page: 10, page_number: 100 })
   }, [])
 
-  //select movie or delete movie
-  const selectUser = async (user) => {
-    props.selectUserAction(user)
+  //delete movie
+  const handleDelete = async (id) => {
+    props.deleteMovie({ id })
+    props.getMovie({ items_per_page: 10, page_number: 100 })
   }
 
   //pagination
@@ -65,7 +66,7 @@ const MovieList = (props) => {
                       <EditIcon />
                     </button>
                     &nbsp; &nbsp; &nbsp;
-                    <button onClick={() => selectUser(row)}>
+                    <button onClick={() => handleDelete(row._id)}>
                       <DeleteIcon />
                     </button>
                   </TableCell>

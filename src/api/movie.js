@@ -23,3 +23,11 @@ export function updateMovie(data) {
     data: data.object,
   })
 }
+
+export function deleteMovie(data) {
+  console.log(data)
+  return axios({
+    url: `/movie/deleteMovie/${data.id}`,
+    method: "delete",
+  })
+}

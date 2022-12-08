@@ -24,3 +24,10 @@ export function updateMovie(data) {
     return updateResponse
   }
 }
+
+export function deleteMovie(data) {
+  return async (dispatch, getState) => {
+    let updateResponse = await movieApi.deleteMovie(data)
+    return updateResponse
+  }
+}
