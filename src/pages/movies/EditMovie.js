@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, memo } from "react"
 import { useForm } from "react-hook-form"
-import { useParams, useSearchParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { connect } from "react-redux"
 import * as actionCreators from "@/store/actionCreators/movie"
 
@@ -11,6 +11,7 @@ import Button from "@mui/material/Button"
 const EditMovie = (props) => {
   const { id } = useParams()
   const [movie, setMovie] = useState()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -18,12 +19,9 @@ const EditMovie = (props) => {
     watch,
     formState: { errors },
   } = useForm()
+
   const onSubmit = (data) => {
-    let newMovie = {}
-    newMovie.id = id
-    newMovie.object = data
-    console.log(data)
-    props.updateMovie(newMovie)
+    props.updateMovie({ id, object: data }).then((res) => navigate("/movies"))
   }
 
   useEffect(() => {
