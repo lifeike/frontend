@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import * as React from "react"
 import Box from "@mui/material/Box"
 import Drawer from "@mui/material/Drawer"
@@ -38,24 +39,28 @@ export default function ClippedDrawer({ children }) {
           <Toolbar />
           <Box sx={{ overflow: "auto" }}>
             <List>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <LiveTvIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={"Movies"} />
-                </ListItemButton>
-              </ListItem>
+              <Link to="/movies">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <LiveTvIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"Movies"} />
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             </List>
             <Divider />
             <List>
               {["All mail", "Trash", "Spam"].map((text, index) => (
-                <ListItem key={text} disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
+                <Link to="/hello">
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton>
+                      <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                      <ListItemText primary={text} />
+                    </ListItemButton>
+                  </ListItem>
+                </Link>
               ))}
             </List>
           </Box>

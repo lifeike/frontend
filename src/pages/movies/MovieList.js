@@ -20,13 +20,13 @@ const MovieList = (props) => {
   const [selectedUser, setSelectedUser] = useState()
   //load movies
   useEffect(() => {
-    props.getMovie({ items_per_page: 10, page_number: 100 })
+    props.getMovie({ items_per_page: 10, page_number: 1 })
   }, [])
 
   //delete movie
   const handleDelete = async (id) => {
     props.deleteMovie({ id })
-    props.getMovie({ items_per_page: 10, page_number: 100 })
+    props.getMovie({ items_per_page: 10, page_number: 1 })
   }
 
   //pagination
