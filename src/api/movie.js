@@ -9,9 +9,17 @@ export function getMovie(data) {
 }
 
 export function findMovie(data) {
-  console.log(data)
   return axios({
     url: `/movie/findOneMovie`,
+    method: "post",
+    data,
+  })
+}
+
+export function updateMovie(data) {
+  console.log(data)
+  return axios({
+    url: `/movie/updateMovie`,
     method: "post",
     data,
   })
