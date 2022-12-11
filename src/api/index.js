@@ -11,7 +11,7 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   (config) => {
-    let access_token = localStorage.getItem("token")
+    let access_token = localStorage.getItem("session").access_token
     if (access_token) {
       let headers = { Authorization: `${access_token}` }
       config.headers = { ...headers, ...config.headers }
@@ -29,7 +29,6 @@ service.interceptors.response.use(
     return response.data
   },
   async (error) => {
-    console.log(error.response.data)
     toast.error(error.response?.data)
     return
   }
