@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, memo } from "react"
+import { useNavigate } from "react-router-dom"
 import SignInLayout from "@/components/Layout/SignInLayout"
 import { connect } from "react-redux"
 import * as actionCreators from "@/store/actionCreators/user"
@@ -6,6 +7,7 @@ import { useForm } from "react-hook-form"
 import Button from "@mui/material/Button"
 
 function SignIn(props) {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -14,7 +16,7 @@ function SignIn(props) {
   } = useForm()
 
   const onSubmit = (data) => {
-    props.signInAction(data)
+    props.signIn(data).then(() => navigate("/dashboard"))
   }
 
   return (

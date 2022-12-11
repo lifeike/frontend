@@ -1,6 +1,8 @@
 import Movies from "./pages/movies"
 import EditMovie from "./pages/movies/EditMovie"
 import SignIn from "./pages/auth/SignIn"
+import Dashboard from "./pages/Dashboard"
+
 import { Routes, Route, Outlet, Link } from "react-router-dom"
 import Loading from "./components/Loading"
 import { ToastContainer } from "react-toastify"
@@ -15,6 +17,7 @@ function App() {
       <Loading />
       <Routes>
         <Route path="/" element={<SignIn />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route
           path="/movies"
           element={
