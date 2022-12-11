@@ -1,17 +1,9 @@
-const reducer = (
-  state = {
-    userList: [],
-    selectedUser: {},
-  },
-  action
-) => {
+const reducer = (state = {}, action) => {
   switch (action.type) {
     case "users/getUser":
-      return { ...state, userList: action.payload }
+      return state
     case "users/setUser":
-      return { ...state, userList: action.payload }
-    case "users/selectUser":
-      return { ...state, selectedUser: action.payload }
+      return action.payload
     default:
       return state
   }
