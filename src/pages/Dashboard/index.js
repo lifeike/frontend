@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect, memo } from "react"
+import HomeLayout from "@/components/Layout/HomeLayout"
 
 const Dashboard = (props) => {
   return (
-    <div>
+    <HomeLayout>
       <h2>Dashboard</h2>
-    </div>
+    </HomeLayout>
   )
 }
 
