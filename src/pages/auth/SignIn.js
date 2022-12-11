@@ -14,6 +14,7 @@ function SignIn(props) {
   } = useForm()
 
   const onSubmit = (data) => {
+    console.log(data)
     props.signInAction(data)
   }
 
