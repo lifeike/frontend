@@ -3,8 +3,11 @@ import { Routes, Route, Link, useNavigate, useLocation, Navigate, Outlet } from 
 
 export function RequireAuth({ children }) {
   const location = useLocation()
+  const session = JSON.parse(localStorage.getItem("session"))
+  const isAuthenticated = session !== undefined && !session.mfa_required && session.access_token !== undefined && session.refresh_token !== undefined
+  console.log(isAuthenticated)
 
-  if (!JSON.parse(localStorage.getItem("session"))?.access_token) {
+  if (isAuthenticated) {
     return <Navigate to="/" state={{ from: location }} replace />
   }
   return children
