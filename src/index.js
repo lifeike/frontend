@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom"
 import "./index.css"
 
 //fullfill user redux profile on  page refresh
-if (localStorage.getItem("session") !== "undefined") {
+if (localStorage.getItem("session")) {
   store.dispatch({ type: "users/setUser", payload: JSON.parse(localStorage.getItem("session")) })
 }
 

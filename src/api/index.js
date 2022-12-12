@@ -13,7 +13,7 @@ service.interceptors.request.use(
   (config) => {
     let access_token
     if (localStorage.getItem("session")) {
-      access_token = JSON.parse(localStorage.getItem("session")).access_token
+      access_token = JSON.parse(localStorage.getItem("session"))?.access_token
     }
     if (access_token) {
       let headers = { Authorization: `${access_token}` }
@@ -33,7 +33,7 @@ service.interceptors.response.use(
   },
   async (error) => {
     toast.error(error.response?.data)
-    return
+    return Promise.reject(error)
   }
 )
 
