@@ -5,8 +5,7 @@ export function signIn(data) {
     dispatch({ type: "loading/turnOn" })
     let response = await AUTH_API.signIn(data)
     localStorage.setItem("session", JSON.stringify(response))
-    console.log(JSON.parse(localStorage.getItem("session")))
-    dispatch({ type: "users/setUser", payload: response.user })
+    dispatch({ type: "users/setUser", payload: response })
     dispatch({ type: "loading/turnOff" })
     return response
   }

@@ -82,6 +82,7 @@ function PrimarySearchAppBar(props) {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget)
   }
+
   const searchKeyword = async (event) => {
     document.addEventListener("keyup", function (event) {
       if (event.keyCode === 13) {
@@ -117,7 +118,7 @@ function PrimarySearchAppBar(props) {
         <MenuItem
           onClick={() => {
             handleMenuClose()
-            localStorage.setItem("token", "")
+            localStorage.setItem("session", "")
           }}>
           Sign out
         </MenuItem>
