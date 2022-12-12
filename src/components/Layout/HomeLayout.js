@@ -53,8 +53,8 @@ export default function ClippedDrawer({ children }) {
             <Divider />
             <List>
               {["All mail", "Trash", "Spam"].map((text, index) => (
-                <Link to="/hello">
-                  <ListItem key={text} disablePadding>
+                <Link key={text} to="/hello">
+                  <ListItem disablePadding>
                     <ListItemButton>
                       <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                       <ListItemText primary={text} />

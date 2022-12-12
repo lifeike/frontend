@@ -79,7 +79,7 @@ const MovieList = (props) => {
       <br></br>
       <div className="grid place-items-center">
         <Stack spacing={2}>
-          <Pagination count={Math.round(+props.movieTable.totalPages)} page={page} onChange={handleChange} />
+          <Pagination count={props.movieTable.totalPages && Math.round(+props.movieTable.totalPages)} page={page} onChange={handleChange} />
         </Stack>
       </div>
     </div>
