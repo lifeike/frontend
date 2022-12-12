@@ -6,7 +6,10 @@ import { Provider } from "react-redux"
 import { BrowserRouter } from "react-router-dom"
 import "./index.css"
 
-store.dispatch({ type: "users/setUser", payload: JSON.parse(localStorage.getItem("session")) })
+//fullfill user redux profile on  page refresh
+if (localStorage.getItem("session")) {
+  store.dispatch({ type: "users/setUser", payload: JSON.parse(localStorage.getItem("session")) })
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
