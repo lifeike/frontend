@@ -1,13 +1,18 @@
 import * as AUTH_API from "@/api/auth"
-import { toast } from "react-toastify"
+import to from "await-to-js"
 
 export function signIn(data) {
   return async (dispatch, getState) => {
     dispatch({ type: "loading/turnOn" })
-    let response = await AUTH_API.signIn(data)
+    let [err, response] = await to(AUTH_API.signIn(data))
+    if (err) {
+      dispatch({ type: "loading/turnOff" })
+      return Promise.reject("error")
+    }
+
     localStorage.setItem("session", JSON.stringify(response))
     dispatch({ type: "user/setUser", payload: response })
     dispatch({ type: "loading/turnOff" })
-    return response
+    return Promise.resolve(response)
   }
 }

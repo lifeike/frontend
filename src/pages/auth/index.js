@@ -7,7 +7,7 @@ export function RequireAuth({ children }) {
   const isAuthenticated = session !== undefined && session?.access_token !== undefined && session?.refresh_token !== undefined
   console.log(isAuthenticated)
 
-  if (isAuthenticated) {
+  if (!isAuthenticated) {
     return <Navigate to="/" state={{ from: location }} replace />
   }
   return children
