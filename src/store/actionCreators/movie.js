@@ -1,9 +1,14 @@
 import * as movieApi from "@/api/movie"
+import to from "await-to-js"
 
 export function getMovie(data) {
   return async (dispatch, getState) => {
     dispatch({ type: "loading/turnOn" })
-    let response = await movieApi.getMovie(data)
+    let [err, response] = await to(movieApi.getMovie(data))
+    if (err) {
+      dispatch({ type: "loading/turnOff" })
+      return Promise.reject(err.message)
+    }
     dispatch({ type: "movie/setMovieTable", payload: response })
     dispatch({ type: "loading/turnOff" })
   }

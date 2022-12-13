@@ -32,6 +32,12 @@ service.interceptors.response.use(
     return response.data
   },
   async (error) => {
+    if (error.response?.data == "Invalid Token") {
+      service.post("/auth/refresh-token", { refresh_token: JSON.parse(localStorage.getItem("session")).refresh_token }).then((res) => {
+        localStorage.setItem("session", JSON.stringify(res))
+        return Promise.resolve(res)
+      })
+    }
     toast.error(error.response?.data)
     return Promise.reject(error)
   }
