@@ -5,7 +5,7 @@ import * as session from "@/utils/session"
 import Movies from "./pages/movies"
 import EditMovie from "./pages/movies/EditMovie"
 import SignIn from "./pages/auth/SignIn"
-import Dashboard from "./pages/Dashboard"
+import Dashboard from "./pages/dashboard"
 
 function RequireAuth({ children }) {
   const location = useLocation()
