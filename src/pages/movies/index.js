@@ -1,4 +1,4 @@
-import HomeLay from "../../components/Layout/HomeLayout"
+import HomeLay from "../../components/layout/HomeLayout"
 import MovieList from "./MovieList"
 
 function Users() {

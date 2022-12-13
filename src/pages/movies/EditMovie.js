@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { connect } from "react-redux"
 import * as actionCreators from "@/store/actionCreators/movie"
 
-import HomeLayout from "@/components/Layout/HomeLayout"
+import HomeLayout from "@/components/layout/HomeLayout"
 import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory"
 import Button from "@mui/material/Button"
 
