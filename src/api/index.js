@@ -33,10 +33,14 @@ service.interceptors.response.use(
   },
   async (error) => {
     if (error.response?.data == "Invalid Token") {
-      service.post("/auth/refresh-token", { refresh_token: JSON.parse(localStorage.getItem("session")).refresh_token }).then((res) => {
-        localStorage.setItem("session", JSON.stringify(res))
-        return Promise.resolve(res)
-      })
+      service.post("/auth/refresh-token", { refresh_token: JSON.parse(localStorage.getItem("session")).refresh_token }).then(
+        (res) => {
+          localStorage.setItem("session", JSON.stringify(res))
+          location.reload()
+          return axios(error.response.config)
+        },
+        (err) => (window.location.href = "/")
+      )
     }
     toast.error(error.response?.data)
     return Promise.reject(error)
