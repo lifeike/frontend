@@ -15,6 +15,7 @@ import ListItemText from "@mui/material/ListItemText"
 import InboxIcon from "@mui/icons-material/MoveToInbox"
 import MailIcon from "@mui/icons-material/Mail"
 import LiveTvIcon from "@mui/icons-material/LiveTv"
+import Badge from "@mui/material/Badge"
 
 const drawerWidth = 240
 
@@ -46,7 +47,7 @@ export default function ClippedDrawer({ children }) {
                       <LiveTvIcon />
                     </ListItemIcon>
                     <ListItemText primary={"Dashboard "} />
-                    <div>2</div>
+                    <Badge badgeContent={4} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>
               </Link>
@@ -57,7 +58,7 @@ export default function ClippedDrawer({ children }) {
                       <LiveTvIcon />
                     </ListItemIcon>
                     <ListItemText primary={"Table (movies)"} />
-                    <div>1</div>
+                    <Badge badgeContent={2} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>
               </Link>
