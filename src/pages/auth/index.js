@@ -4,8 +4,6 @@ import { Routes, Route, Link, useNavigate, useLocation, Navigate, Outlet } from 
 
 export function RequireAuth({ children }) {
   const location = useLocation()
-  console.log(session.isAuthenticated())
-
   if (!session.isAuthenticated()) {
     return <Navigate to="/" state={{ from: location }} replace />
   }
