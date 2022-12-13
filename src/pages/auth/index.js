@@ -3,8 +3,8 @@ import { Routes, Route, Link, useNavigate, useLocation, Navigate, Outlet } from 
 
 export function RequireAuth({ children }) {
   const location = useLocation()
-  const session = JSON.parse(localStorage.getItem("session"))
-  const isAuthenticated = session !== undefined && session?.access_token !== undefined && session?.refresh_token !== undefined
+  const session = localStorage.getItem("session") && JSON.parse(localStorage.getItem("session"))
+  const isAuthenticated = session != "" && session !== undefined && session?.access_token !== undefined && session?.refresh_token !== undefined
   console.log(isAuthenticated)
 
   if (!isAuthenticated) {

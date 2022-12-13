@@ -9,7 +9,6 @@ export function signIn(data) {
       dispatch({ type: "loading/turnOff" })
       return Promise.reject("error")
     }
-
     localStorage.setItem("session", JSON.stringify(response))
     dispatch({ type: "user/setUser", payload: response })
     dispatch({ type: "loading/turnOff" })
