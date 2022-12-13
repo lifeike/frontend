@@ -58,7 +58,7 @@ export default function ClippedDrawer({ children }) {
                     <ListItemIcon>
                       <LiveTvIcon />
                     </ListItemIcon>
-                    <ListItemText primary={"Table (movies)"} />
+                    <ListItemText primary={"Movies (table)"} />
                     <Badge badgeContent={2} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>
