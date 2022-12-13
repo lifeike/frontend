@@ -39,6 +39,16 @@ export default function ClippedDrawer({ children }) {
           <Toolbar />
           <Box sx={{ overflow: "auto" }}>
             <List>
+              <Link to="/dashboard">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <LiveTvIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"Dashboard "} />
+                  </ListItemButton>
+                </ListItem>
+              </Link>
               <Link to="/movies">
                 <ListItem disablePadding>
                   <ListItemButton>
