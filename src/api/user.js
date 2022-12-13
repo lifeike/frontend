@@ -1,4 +1,4 @@
-import axios from "./index"
+import axios from "@/utils/service"
 
 export function getUser(data) {
   return axios({
