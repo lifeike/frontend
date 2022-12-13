@@ -46,6 +46,7 @@ export default function ClippedDrawer({ children }) {
                       <LiveTvIcon />
                     </ListItemIcon>
                     <ListItemText primary={"Dashboard "} />
+                    <div>2</div>
                   </ListItemButton>
                 </ListItem>
               </Link>
@@ -56,6 +57,7 @@ export default function ClippedDrawer({ children }) {
                       <LiveTvIcon />
                     </ListItemIcon>
                     <ListItemText primary={"Table (movies)"} />
+                    <div>1</div>
                   </ListItemButton>
                 </ListItem>
               </Link>
