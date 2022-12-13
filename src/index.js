@@ -8,7 +8,6 @@ import "./index.css"
 
 //fullfill user redux profile on  page refresh
 if (localStorage.getItem("session")) {
-  console.log(localStorage.getItem("session"))
   store.dispatch({ type: "users/setUser", payload: JSON.parse(localStorage.getItem("session")) })
 }
 

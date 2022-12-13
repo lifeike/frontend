@@ -2,7 +2,6 @@ import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 
 // create an axios instance
-console.log(process.env.NODE_ENV)
 const service = axios.create({
   baseURL: process.env.NODE_ENV == "development" ? "http://localhost:3000/api/localhost" : "http://localhost:3000/api/v1",
   timeout: 50000,
@@ -11,7 +10,7 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   (config) => {
-    let access_token
+    let access_token = null
     if (localStorage.getItem("session")) {
       access_token = JSON.parse(localStorage.getItem("session"))?.access_token
     }
