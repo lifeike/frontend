@@ -45,7 +45,7 @@ export default function ClippedDrawer({ children }) {
                     <ListItemIcon>
                       <LiveTvIcon />
                     </ListItemIcon>
-                    <ListItemText primary={"Movies"} />
+                    <ListItemText primary={"Table (movies)"} />
                   </ListItemButton>
                 </ListItem>
               </Link>
