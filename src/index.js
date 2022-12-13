@@ -2,13 +2,14 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import App from "./App"
 import store from "./store"
+import * as session from "@/utils/session"
 import { Provider } from "react-redux"
 import { BrowserRouter } from "react-router-dom"
 import "./index.css"
 
 //fullfill user redux profile on  page refresh
-if (localStorage.getItem("session")) {
-  store.dispatch({ type: "users/setUser", payload: JSON.parse(localStorage.getItem("session")) })
+if (session.getSession()) {
+  store.dispatch({ type: "users/setUser", payload: session.getSession() })
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"))

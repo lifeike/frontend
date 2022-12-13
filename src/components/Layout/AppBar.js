@@ -1,4 +1,5 @@
 import * as React from "react"
+import * as session from "@/utils/session"
 import { Link } from "react-router-dom"
 import { styled, alpha } from "@mui/material/styles"
 import AppBar from "@mui/material/AppBar"
@@ -118,7 +119,7 @@ function PrimarySearchAppBar(props) {
         <MenuItem
           onClick={() => {
             handleMenuClose()
-            localStorage.setItem("session", "")
+            session.clearSession()
           }}>
           Sign out
         </MenuItem>

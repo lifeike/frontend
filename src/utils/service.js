@@ -1,4 +1,5 @@
 import axios from "axios"
+import * as session from "@/utils/session"
 import { toast, ToastContainer } from "react-toastify"
 
 // create an axios instance
@@ -11,8 +12,8 @@ const service = axios.create({
 service.interceptors.request.use(
   (config) => {
     let access_token = null
-    if (localStorage.getItem("session")) {
-      access_token = JSON.parse(localStorage.getItem("session"))?.access_token
+    if (session.getSession()) {
+      access_token = session.getSession().access_token
     }
     if (access_token) {
       let headers = { Authorization: `${access_token}` }
@@ -32,9 +33,9 @@ service.interceptors.response.use(
   },
   async (error) => {
     if (error.response?.data == "Invalid Token") {
-      service.post("/auth/refresh-token", { refresh_token: JSON.parse(localStorage.getItem("session")).refresh_token }).then(
+      service.post("/auth/refresh-token", { refresh_token: session.getSession().refresh_token }).then(
         (res) => {
-          localStorage.setItem("session", JSON.stringify(res))
+          session.setSession(res)
           location.reload()
           return axios(error.response.config)
         },

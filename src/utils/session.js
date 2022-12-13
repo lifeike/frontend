@@ -1,4 +1,4 @@
-export const getSession = async () => {
+export const getSession = () => {
   let sessionJson = localStorage.getItem("session")
   if (sessionJson) {
     try {
@@ -10,15 +10,16 @@ export const getSession = async () => {
   return
 }
 
-export const setSession = async (session) => {
+export const setSession = (session) => {
   localStorage.setItem("session", JSON.stringify(session))
 }
 
-export const clearSession = async () => {
+export const clearSession = () => {
   localStorage.removeItem("session")
 }
 
 export const isAuthenticated = () => {
   const session = getSession()
-  return session !== undefined && session.access_token !== undefined && session.refresh_token !== undefined
+  console.log(session)
+  return session != "" && session !== undefined && session.access_token !== undefined && session.refresh_token !== undefined
 }
