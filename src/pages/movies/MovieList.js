@@ -14,6 +14,7 @@ import DeleteIcon from "@mui/icons-material/Delete"
 import Typography from "@mui/material/Typography"
 import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
+import { toast } from "react-toastify"
 
 const MovieList = (props) => {
   const navigate = useNavigate()
@@ -25,7 +26,7 @@ const MovieList = (props) => {
 
   //delete movie
   const handleDelete = async (id) => {
-    await props.deleteMovie({ id })
+    await props.deleteMovie({ id }).then((res) => toast.success(res.message))
     await props.getMovie({ items_per_page: 10, page_number: 1 })
   }
 
