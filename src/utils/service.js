@@ -36,9 +36,9 @@ service.interceptors.request.use(
         session.setSession(res.data)
         store.dispatch({ type: "user/setUser", payload: res.data })
         config.headers.Authorization = res.data.access_token
-        // return config
         await axios(config) //optional behavior
-        // location.reload()  //optional behavior
+        location.reload() //optional behavior
+        // return config
       })
       .catch((err) => {
         session.clearSession()
