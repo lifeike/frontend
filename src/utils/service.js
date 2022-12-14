@@ -36,12 +36,13 @@ service.interceptors.request.use(
         session.setSession(res.data)
         store.dispatch({ type: "user/setUser", payload: res.data })
         config.headers.Authorization = res.data.access_token
+        console.log("access token refreshed.")
       })
       .catch((err) => {
+        console.log("refresh token expired.")
         session.clearSession()
         window.location.href = "/"
       })
-      .finally(() => console.log("token refreshed."))
     return config
   },
   (error) => {
