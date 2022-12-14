@@ -1,5 +1,6 @@
 import axios from "axios"
 import * as session from "@/utils/session"
+import store from "@/store"
 import { toast, ToastContainer } from "react-toastify"
 
 // create an axios instance
@@ -41,14 +42,13 @@ service.interceptors.response.use(
       .post("http://localhost:3000/api/localhost/auth/refresh-token", { refresh_token: session.getSession().refresh_token })
       .then((res) => {
         session.setSession(res.data)
-        // location.reload()
-        return axios(error.response.config)
+        store.dispatch({ type: "user/setUser", payload: res.data })
+        location.reload()
       })
       .catch((err) => {
-        console.log("hello world")
         window.location.href = "/"
       })
-      .finally(() => console.log("tst"))
+      .finally(() => console.log("token refreshed."))
   }
 )
 
