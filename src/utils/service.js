@@ -13,8 +13,12 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   (config) => {
-    if (session.getSession().access_token) {
-      let headers = { Authorization: `${session.getSession().access_token}` }
+    let access_token = null
+    if (localStorage.getItem("session")) {
+      access_token = JSON.parse(localStorage.getItem("session"))?.access_token
+    }
+    if (access_token) {
+      let headers = { Authorization: `${access_token}` }
       config.headers = { ...headers, ...config.headers }
     }
     return config
