@@ -32,18 +32,22 @@ service.interceptors.response.use(
     return response.data
   },
   async (error) => {
-    if (error.response?.data == "Invalid Token") {
-      service.post("/auth/refresh-token", { refresh_token: session.getSession().refresh_token }).then(
-        (res) => {
-          session.setSession(res)
-          location.reload()
-          return axios(error.response.config)
-        },
-        (err) => (window.location.href = "/")
-      )
+    if (error.response?.status !== 401) {
+      toast.error(error.response?.data)
+      return Promise.reject(error)
     }
-    toast.error(error.response?.data)
-    return Promise.reject(error)
+
+    axios
+      .post("http://localhost:3000/api/localhost/auth/refresh-token", { refresh_token: session.getSession().refresh_token })
+      .then((res) => {
+        session.setSession(res.data)
+        location.reload()
+        return axios(error.response.config)
+      })
+      .catch((err) => {
+        window.location.href = "/"
+      })
+      .finally(() => console.log("tst"))
   }
 )
 
