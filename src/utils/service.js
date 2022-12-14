@@ -37,12 +37,16 @@ service.interceptors.response.use(
 
     axios
       .post(`${baseURL}/auth/refresh-token`, { refresh_token: session.getSession().refresh_token })
-      .then((res) => {
+      .then(async (res) => {
         session.setSession(res.data)
         store.dispatch({ type: "user/setUser", payload: res.data })
+        let request = error.response.config
+        request.headers.Authorization = res.data.access_token
+        await axios(request)
         location.reload()
       })
       .catch((err) => {
+        session.clearSession()
         window.location.href = "/"
       })
       .finally(() => console.log("token refreshed."))
