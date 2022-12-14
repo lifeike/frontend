@@ -1,4 +1,7 @@
 import axios from "axios"
+import jwt_decode from "jwt-decode"
+import moment from "moment"
+
 import { baseURL } from "./URL"
 import * as session from "@/utils/session"
 import store from "@/store"
@@ -13,13 +16,14 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   (config) => {
-    let access_token = null
-    if (localStorage.getItem("session")) {
-      access_token = JSON.parse(localStorage.getItem("session"))?.access_token
-    }
-    if (access_token) {
-      let headers = { Authorization: `${access_token}` }
+    if (session.isAuthenticated()) {
+      let headers = { Authorization: `${session.getSession().access_token}` }
       config.headers = { ...headers, ...config.headers }
+      let exp_time = jwt_decode(session.getSession().access_token).exp
+      let now = Math.floor(Date.now() / 1000)
+      console.log(exp_time)
+      console.log(now)
+      console.log(time - now)
     }
     return config
   },
