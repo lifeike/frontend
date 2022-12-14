@@ -41,10 +41,11 @@ service.interceptors.response.use(
       .post("http://localhost:3000/api/localhost/auth/refresh-token", { refresh_token: session.getSession().refresh_token })
       .then((res) => {
         session.setSession(res.data)
-        location.reload()
+        // location.reload()
         return axios(error.response.config)
       })
       .catch((err) => {
+        console.log("hello world")
         window.location.href = "/"
       })
       .finally(() => console.log("tst"))

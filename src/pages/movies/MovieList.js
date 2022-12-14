@@ -25,14 +25,14 @@ const MovieList = (props) => {
 
   //delete movie
   const handleDelete = async (id) => {
-    props.deleteMovie({ id })
-    props.getMovie({ items_per_page: 10, page_number: 1 })
+    await props.deleteMovie({ id })
+    await props.getMovie({ items_per_page: 10, page_number: 1 })
   }
 
   //pagination
   const [page, setPage] = React.useState(1)
-  const handleChange = (event, value) => {
-    props.getMovie({ items_per_page: 10, page_number: value })
+  const handleChange = async (event, value) => {
+    await props.getMovie({ items_per_page: 10, page_number: value })
     setPage(value)
   }
 
