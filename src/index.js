@@ -9,7 +9,7 @@ import "./index.css"
 
 //fullfill user redux profile on  page refresh
 if (session.getSession()) {
-  store.dispatch({ type: "users/setUser", payload: session.getSession() })
+  store.dispatch({ type: "user/setUser", payload: session.getSession() })
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
