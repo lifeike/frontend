@@ -15,7 +15,8 @@ const service = axios.create({
 })
 // request interceptor
 service.interceptors.request.use(
-  (config) => {
+  async (config) => {
+    let expired = null
     if (session.isAuthenticated()) {
       let headers = { Authorization: `${session.getSession().access_token}` }
       config.headers = { ...headers, ...config.headers }
@@ -23,9 +24,27 @@ service.interceptors.request.use(
       let now = Math.floor(Date.now() / 1000)
       console.log(exp_time)
       console.log(now)
-      console.log(time - now)
+      expired = exp_time - now < 10
+      console.log(exp_time - now)
     }
-    return config
+    if (!expired) return config
+
+    //if expired, get new access token, then request again
+    await axios
+      .post(`${baseURL}/auth/refresh-token`, { refresh_token: session.getSession().refresh_token })
+      .then(async (res) => {
+        session.setSession(res.data)
+        store.dispatch({ type: "user/setUser", payload: res.data })
+        config.headers.Authorization = res.data.access_token
+        // return config
+        await axios(config) //optional behavior
+        // location.reload()  //optional behavior
+      })
+      .catch((err) => {
+        session.clearSession()
+        window.location.href = "/"
+      })
+      .finally(() => console.log("token refreshed."))
   },
   (error) => {
     return error
@@ -42,22 +61,6 @@ service.interceptors.response.use(
       toast.error(error.response?.data)
       return Promise.reject(error)
     }
-
-    axios
-      .post(`${baseURL}/auth/refresh-token`, { refresh_token: session.getSession().refresh_token })
-      .then(async (res) => {
-        session.setSession(res.data)
-        store.dispatch({ type: "user/setUser", payload: res.data })
-        let request = error.response.config
-        request.headers.Authorization = res.data.access_token
-        await axios(request)
-        location.reload()
-      })
-      .catch((err) => {
-        session.clearSession()
-        window.location.href = "/"
-      })
-      .finally(() => console.log("token refreshed."))
   }
 )
 

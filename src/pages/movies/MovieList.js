@@ -26,8 +26,8 @@ const MovieList = (props) => {
 
   //delete movie
   const handleDelete = async (id) => {
-    await props.deleteMovie({ id }).then((res) => toast.success(res.message))
-    await props.getMovie({ items_per_page: 10, page_number: 1 })
+    props.deleteMovie({ id }).then((res) => toast.success(res.message))
+    props.getMovie({ items_per_page: 10, page_number: 1 })
   }
 
   //pagination
