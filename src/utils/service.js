@@ -55,10 +55,8 @@ service.interceptors.response.use(
     return response.data
   },
   async (error) => {
-    if (error.response?.status !== 401) {
-      toast.error(error.response?.data)
-      return Promise.reject(error)
-    }
+    toast.error(error.response?.data)
+    return Promise.reject(error)
   }
 )
 
