@@ -1,23 +1,20 @@
 import axios from "axios"
+import { baseURL } from "./URL"
 import * as session from "@/utils/session"
 import store from "@/store"
 import { toast, ToastContainer } from "react-toastify"
 
 // create an axios instance
 const service = axios.create({
-  baseURL: process.env.NODE_ENV == "development" ? "http://localhost:3000/api/localhost" : "http://localhost:3000/api/v1",
+  baseURL,
   timeout: 50000,
   headers: { "content-type": "application/json;charset=UTF-8" },
 })
 // request interceptor
 service.interceptors.request.use(
   (config) => {
-    let access_token = null
-    if (session.getSession()) {
-      access_token = session.getSession().access_token
-    }
-    if (access_token) {
-      let headers = { Authorization: `${access_token}` }
+    if (session.getSession().access_token) {
+      let headers = { Authorization: `${session.getSession().access_token}` }
       config.headers = { ...headers, ...config.headers }
     }
     return config
@@ -39,7 +36,7 @@ service.interceptors.response.use(
     }
 
     axios
-      .post("http://localhost:3000/api/localhost/auth/refresh-token", { refresh_token: session.getSession().refresh_token })
+      .post(`${baseURL}/auth/refresh-token`, { refresh_token: session.getSession().refresh_token })
       .then((res) => {
         session.setSession(res.data)
         store.dispatch({ type: "user/setUser", payload: res.data })
