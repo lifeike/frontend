@@ -2,51 +2,22 @@ import React, { useState, useRef, useEffect, memo } from "react"
 import { useDropzone } from "react-dropzone"
 import HomeLayout from "@/components/layout/HomeLayout"
 
-const thumbsContainer = {
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  marginTop: 16,
-}
-
-const thumb = {
-  display: "inline-flex",
-  borderRadius: 2,
-  border: "1px solid #eaeaea",
-  marginBottom: 8,
-  marginRight: 8,
-  width: 100,
-  height: 100,
-  padding: 4,
-  boxSizing: "border-box",
-}
-
-const thumbInner = {
-  display: "flex",
-  minWidth: 0,
-  overflow: "hidden",
-}
-
-const img = {
-  display: "block",
-  width: "auto",
-  height: "100%",
-}
 export default function Upload(props) {
   const [files, setFiles] = useState([])
   const { getRootProps, getInputProps } = useDropzone({
+    multiple: true,
     accept: { "image/*": [] },
     onDrop: (acceptedFiles) => {
+      acceptedFiles = [...acceptedFiles, ...files] //allow to upload one by one
       setFiles(acceptedFiles.map((file) => Object.assign(file, { preview: URL.createObjectURL(file) })))
     },
   })
 
   const thumbs = files.map((file) => (
-    <div style={thumb} key={file.name}>
-      <div style={thumbInner}>
+    <div className="inline-flex rounded-md border  mb-2 mr-2 w-20 h-20 p-1 " key={file.name}>
+      <div className="flex min-w-0 overflow-hidden">
         <img
           src={file.preview}
-          style={img}
           // Revoke data uri after image is loaded
           onLoad={() => {
             URL.revokeObjectURL(file.preview)
@@ -63,15 +34,16 @@ export default function Upload(props) {
 
   return (
     <HomeLayout>
+      <a href="https://react-dropzone.js.org" target="_blank">
+        https://react-dropzone.js.org/
+      </a>
       <section className="container">
         <div {...getRootProps({ className: "dropzone" })}>
           <input {...getInputProps()} />
-          <p>Drag 'n' drop some files here, or click to select files</p>
+          <p className="my-2 py-2 w-1/2 border border-dashed border-black rounded-md ">Drag 'n' drop some files here, or click to select files</p>
         </div>
-        <aside style={thumbsContainer}>{thumbs}</aside>
+        <aside>{thumbs}</aside>
       </section>
     </HomeLayout>
   )
 }
-
-// ;<Previews />
