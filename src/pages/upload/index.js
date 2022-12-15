@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import * as actionCreators from "@/store/actionCreators/upload"
 import HomeLayout from "@/components/layout/HomeLayout"
 import { toast } from "react-toastify"
+import { Divider } from "@mui/material"
 
 function Upload(props) {
   const [files, setFiles] = useState([])
@@ -34,6 +35,12 @@ function Upload(props) {
     props.uploadImage(formData).then((res) => toast.success("upload successfully."))
   }
 
+  const [images, setImages] = useState([])
+  const getAllUploadedImages = async () => {
+    let imgArr = await props.getAllUploadedImages()
+    setImages(imgArr)
+  }
+
   return (
     <HomeLayout>
       <a href="https://react-dropzone.js.org" target="_blank">
@@ -62,7 +69,20 @@ function Upload(props) {
             ))}
         </aside>
       </section>
-      <button onClick={handleSubmit}>submit</button>
+      <button className="p-2 bg-blue-50" onClick={handleSubmit}>
+        submit
+      </button>
+
+      <br></br>
+      <br></br>
+      <hr></hr>
+      <hr></hr>
+      <hr></hr>
+      <br></br>
+      <button onClick={getAllUploadedImages}>Display all uploaded images</button>
+      {images.map((item) => {
+        return <img className="w-40 h-40" src={item.location}></img>
+      })}
     </HomeLayout>
   )
 }

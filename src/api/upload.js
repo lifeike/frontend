@@ -8,3 +8,10 @@ export function uploadImage(data) {
     headers: { "Content-Type": "multipart/form-data" },
   })
 }
+
+export function getAllIamges() {
+  return axios({
+    url: `/upload/get-all-uploaded-images`,
+    method: "get",
+  })
+}
