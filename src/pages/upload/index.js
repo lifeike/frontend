@@ -13,6 +13,11 @@ export default function Upload(props) {
     },
   })
 
+  useEffect(() => {
+    // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
+    return () => files.forEach((file) => URL.revokeObjectURL(file.preview))
+  }, [])
+
   const thumbs = files.map((file) => (
     <div className="inline-flex rounded-md border  mb-2 mr-2 w-20 h-20 p-1 " key={file.name}>
       <div className="flex min-w-0 overflow-hidden">
@@ -27,12 +32,7 @@ export default function Upload(props) {
     </div>
   ))
 
-  useEffect(() => {
-    // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
-    return () => files.forEach((file) => URL.revokeObjectURL(file.preview))
-  }, [])
   const handleSubmit = async () => {
-    //
     console.log(files)
   }
 
@@ -44,7 +44,7 @@ export default function Upload(props) {
       <section className="container">
         <div {...getRootProps({ className: "dropzone" })}>
           <input {...getInputProps()} />
-          <p className="my-2 py-2 w-1/2 border border-dashed border-black rounded-md ">Drag 'n' drop some files here, or click to select files</p>
+          <p className="my-2  w-1/2 border border-dashed border-black rounded-md p-2">Drag 'n' drop some files here, or click to select files</p>
         </div>
         <aside>{thumbs}</aside>
       </section>
