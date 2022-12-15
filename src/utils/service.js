@@ -22,10 +22,10 @@ service.interceptors.request.use(
       config.headers = { ...headers, ...config.headers }
       let exp_time = jwt_decode(session.getSession().access_token).exp
       let now = Math.floor(Date.now() / 1000)
-      console.log(exp_time)
-      console.log(now)
+      // console.log(exp_time)
+      // console.log(now)
+      // console.log(exp_time - now)
       expired = exp_time - now < 10
-      console.log(exp_time - now)
     }
     if (!expired) return config
 
