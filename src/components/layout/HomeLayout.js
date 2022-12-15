@@ -63,6 +63,17 @@ export default function ClippedDrawer({ children }) {
                   </ListItemButton>
                 </ListItem>
               </Link>
+              <Link to="/upload">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <LiveTvIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"Images (upload)"} />
+                    <Badge badgeContent={12} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             </List>
             <Divider />
             <List>

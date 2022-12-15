@@ -6,6 +6,7 @@ import Movies from "./pages/movies"
 import EditMovie from "./pages/movies/EditMovie"
 import SignIn from "./pages/auth/SignIn"
 import Dashboard from "./pages/dashboard"
+import Upload from "./pages/upload"
 
 function RequireAuth({ children }) {
   const location = useLocation()
@@ -33,6 +34,14 @@ const RouteTable = (props) => {
         element={
           <RequireAuth>
             <EditMovie />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/upload"
+        element={
+          <RequireAuth>
+            <Upload />
           </RequireAuth>
         }
       />
