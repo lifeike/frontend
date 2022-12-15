@@ -3,6 +3,7 @@ import { useDropzone } from "react-dropzone"
 import { connect } from "react-redux"
 import * as actionCreators from "@/store/actionCreators/upload"
 import HomeLayout from "@/components/layout/HomeLayout"
+import { toast } from "react-toastify"
 
 function Upload(props) {
   const [files, setFiles] = useState([])
@@ -30,7 +31,7 @@ function Upload(props) {
     files.forEach((item) => {
       formData.append("uploaded-images", item)
     })
-    props.uploadImage(formData)
+    props.uploadImage(formData).then((res) => toast.success("upload successfully."))
   }
 
   return (
