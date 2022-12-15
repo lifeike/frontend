@@ -18,20 +18,6 @@ export default function Upload(props) {
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview))
   }, [])
 
-  const thumbs = files.map((file) => (
-    <div className="inline-flex rounded-md border  mb-2 mr-2 w-20 h-20 p-1 " key={file.name}>
-      <div className="flex min-w-0 overflow-hidden">
-        <img
-          src={file.preview}
-          // Revoke data uri after image is loaded
-          onLoad={() => {
-            URL.revokeObjectURL(file.preview)
-          }}
-        />
-      </div>
-    </div>
-  ))
-
   const handleSubmit = async () => {
     console.log(files)
   }
@@ -47,7 +33,22 @@ export default function Upload(props) {
           <input {...getInputProps()} />
           <p className="my-2  w-1/2 border border-dashed border-black rounded-md p-2">Drag 'n' drop some files here, or click to select files</p>
         </div>
-        <aside>{thumbs}</aside>
+        <aside>
+          {files &&
+            files.map((file) => (
+              <div className="inline-flex rounded-md border  mb-2 mr-2 w-20 h-20 p-1 " key={file.name}>
+                <div className="flex min-w-0 overflow-hidden">
+                  <img
+                    src={file.preview}
+                    // Revoke data uri after image is loaded
+                    onLoad={() => {
+                      URL.revokeObjectURL(file.preview)
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+        </aside>
       </section>
       <button onClick={handleSubmit}>submit</button>
     </HomeLayout>
