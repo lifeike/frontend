@@ -31,6 +31,10 @@ export default function Upload(props) {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview))
   }, [])
+  const handleSubmit = async () => {
+    //
+    console.log(files)
+  }
 
   return (
     <HomeLayout>
@@ -44,6 +48,7 @@ export default function Upload(props) {
         </div>
         <aside>{thumbs}</aside>
       </section>
+      <button onClick={handleSubmit}>submit</button>
     </HomeLayout>
   )
 }
