@@ -28,10 +28,10 @@ export default function Upload(props) {
         <strong>documentation link:&nbsp; &nbsp;&nbsp;&nbsp;</strong>
         https://react-dropzone.js.org/
       </a>
-      <section className="container">
+      <section className="container cursor-pointer">
         <div {...getRootProps({ className: "dropzone" })}>
           <input {...getInputProps()} />
-          <p className="my-2  w-1/2 border border-dashed border-black rounded-md p-2">Drag 'n' drop some files here, or click to select files</p>
+          <p className="my-2  w-1/2 border border-dashed  rounded-md p-2">Drag 'n' drop some files here, or click to select files</p>
         </div>
         <aside>
           {files &&

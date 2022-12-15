@@ -1,17 +1,15 @@
-import * as AUTH_API from "@/api/auth"
+import * as UPLOAD_API from "@/api/upload"
 import * as session from "@/utils/session"
 import to from "await-to-js"
 
-export function signIn(data) {
+export function uploadImage(data) {
   return async (dispatch, getState) => {
     dispatch({ type: "loading/turnOn" })
-    const [err, response] = await to(AUTH_API.signIn(data))
+    const [err, response] = await to(UPLOAD_API.uploadImage(data))
     if (err) {
       dispatch({ type: "loading/turnOff" })
       return Promise.reject("error")
     }
-    session.setSession(response)
-    dispatch({ type: "user/setUser", payload: response })
     dispatch({ type: "loading/turnOff" })
     return Promise.resolve(response)
   }
