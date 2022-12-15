@@ -16,6 +16,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox"
 import MailIcon from "@mui/icons-material/Mail"
 import LiveTvIcon from "@mui/icons-material/LiveTv"
 import DashboardIcon from "@mui/icons-material/Dashboard"
+import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload"
 import Badge from "@mui/material/Badge"
 
 const drawerWidth = 240
@@ -67,7 +68,7 @@ export default function ClippedDrawer({ children }) {
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      <LiveTvIcon />
+                      <DriveFolderUploadIcon />
                     </ListItemIcon>
                     <ListItemText primary={"Images (upload)"} />
                     <Badge badgeContent={12} color="primary"></Badge>
