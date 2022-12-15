@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect, memo } from "react"
 import { useDropzone } from "react-dropzone"
+import { connect } from "react-redux"
+import * as actionCreators from "@/store/actionCreators/upload"
 import HomeLayout from "@/components/layout/HomeLayout"
 
-export default function Upload(props) {
+function Upload(props) {
   const [files, setFiles] = useState([])
   const { getRootProps, getInputProps } = useDropzone({
     multiple: true,
@@ -20,6 +22,15 @@ export default function Upload(props) {
 
   const handleSubmit = async () => {
     console.log(files)
+    let formData = new FormData()
+    formData.append("caption", "hello")
+    formData.append("instagram", "www.feeco.com")
+    formData.append("email", "lifeike@gmail.com")
+    formData.append("name", "feeco")
+    files.forEach((item) => {
+      formData.append("customFile", item)
+    })
+    props.uploadImage(formData)
   }
 
   return (
@@ -54,3 +65,5 @@ export default function Upload(props) {
     </HomeLayout>
   )
 }
+
+export default connect(null, actionCreators)(Upload)
