@@ -28,7 +28,7 @@ function Upload(props) {
     formData.append("email", "lifeike@gmail.com")
     formData.append("name", "feeco")
     files.forEach((item) => {
-      formData.append("customFile", item)
+      formData.append("uploaded-images", item)
     })
     props.uploadImage(formData)
   }
