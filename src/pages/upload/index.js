@@ -39,6 +39,7 @@ export default function Upload(props) {
   return (
     <HomeLayout>
       <a href="https://react-dropzone.js.org" target="_blank">
+        <strong>documentation link:&nbsp; &nbsp;&nbsp;&nbsp;</strong>
         https://react-dropzone.js.org/
       </a>
       <section className="container">
