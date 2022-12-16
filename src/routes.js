@@ -2,12 +2,13 @@ import React, { useState, useRef, useEffect, memo } from "react"
 import { Routes, Route, Link, useNavigate, useLocation, Navigate, Outlet } from "react-router-dom"
 import * as session from "@/utils/session"
 
-import Movies from "./pages/movies"
-import EditMovie from "./pages/movies/EditMovie"
-import SignIn from "./pages/auth/SignIn"
-import Dashboard from "./pages/dashboard"
-import Upload from "./pages/upload"
-import GoogleMapAutoComplete from "./pages/googleMap.js"
+import Movies from "@/pages/movies"
+import EditMovie from "@/pages/movies/EditMovie"
+import SignIn from "@/pages/auth/SignIn"
+import Dashboard from "@/pages/dashboard"
+import Upload from "@/pages/upload"
+import GoogleMapAutoComplete from "@/pages/googleMap.js"
+import Chat from "@/pages/chat"
 
 function RequireAuth({ children }) {
   const location = useLocation()
@@ -51,6 +52,14 @@ const RouteTable = (props) => {
         element={
           <RequireAuth>
             <GoogleMapAutoComplete />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/chat"
+        element={
+          <RequireAuth>
+            <Chat />
           </RequireAuth>
         }
       />

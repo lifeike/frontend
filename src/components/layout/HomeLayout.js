@@ -18,6 +18,7 @@ import LiveTvIcon from "@mui/icons-material/LiveTv"
 import DashboardIcon from "@mui/icons-material/Dashboard"
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload"
 import GoogleIcon from "@mui/icons-material/Google"
+import ChatIcon from "@mui/icons-material/Chat"
 import Badge from "@mui/material/Badge"
 
 const drawerWidth = 240
@@ -90,16 +91,17 @@ export default function ClippedDrawer({ children }) {
             </List>
             <Divider />
             <List>
-              {["All mail", "Trash", "Spam"].map((text, index) => (
-                <Link key={text} to="/hello">
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                      <ListItemText primary={text} />
-                    </ListItemButton>
-                  </ListItem>
-                </Link>
-              ))}
+              <Link to="/chat">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <ChatIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"Chat room"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             </List>
           </Box>
         </Drawer>
