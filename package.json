@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "@chatscope/chat-ui-kit-react": "^1.9.9",
+    "@chatscope/use-chat": "^2.0.2",
     "@craco/craco": "^7.0.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -17,6 +19,7 @@
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
+    "nanoid": "^4.0.0",
     "pintura": "^0.3.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
