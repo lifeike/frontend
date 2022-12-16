@@ -80,7 +80,7 @@ function Upload(props) {
       <hr></hr>
       <br></br>
       <Button variant="contained" onClick={getAllUploadedImages}>
-        Display all uploaded images
+        Display all uploaded images in database
       </Button>
       {images.map((item, index) => {
         return <img key={index} className="w-40 h-40" src={item.location}></img>
