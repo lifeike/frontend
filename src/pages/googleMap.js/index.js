@@ -37,7 +37,7 @@ const GoogleMapAutoComplete = (props) => {
             // onChange: (defaultInputValue) => console.log(defaultInputValue),
             onChange: (defaultInputValue) => handleChange(defaultInputValue),
           }}
-          apiOptions={{ language: "ca", region: "ca" }}
+          apiOptions={{ language: "ca" }}
           // selectProps={{
           //   styles: {
           //     input: (provided) => ({
