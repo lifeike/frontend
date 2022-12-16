@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import * as actionCreators from "@/store/actionCreators/upload"
 import HomeLayout from "@/components/layout/HomeLayout"
 import { toast } from "react-toastify"
-import { Divider } from "@mui/material"
+import Button from "@mui/material/Button"
 
 function Upload(props) {
   const [files, setFiles] = useState([])
@@ -69,9 +69,9 @@ function Upload(props) {
             ))}
         </aside>
       </section>
-      <button className="p-2 bg-blue-50" onClick={handleSubmit}>
-        submit
-      </button>
+      <Button variant="contained" onClick={handleSubmit}>
+        Submit{" "}
+      </Button>
 
       <br></br>
       <br></br>
@@ -79,9 +79,11 @@ function Upload(props) {
       <hr></hr>
       <hr></hr>
       <br></br>
-      <button onClick={getAllUploadedImages}>Display all uploaded images</button>
-      {images.map((item) => {
-        return <img className="w-40 h-40" src={item.location}></img>
+      <Button variant="contained" onClick={getAllUploadedImages}>
+        Display all uploaded images
+      </Button>
+      {images.map((item, index) => {
+        return <img key={index} className="w-40 h-40" src={item.location}></img>
       })}
     </HomeLayout>
   )
