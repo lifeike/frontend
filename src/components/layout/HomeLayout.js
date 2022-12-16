@@ -81,7 +81,7 @@ export default function ClippedDrawer({ children }) {
                     <ListItemIcon>
                       <DriveFolderUploadIcon />
                     </ListItemIcon>
-                    <ListItemText primary={"registration (google map autocomplete)"} />
+                    <ListItemText primary={"Registration (google map autocomplete)"} />
                     <Badge badgeContent={0} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>
