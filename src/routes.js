@@ -7,6 +7,7 @@ import EditMovie from "./pages/movies/EditMovie"
 import SignIn from "./pages/auth/SignIn"
 import Dashboard from "./pages/dashboard"
 import Upload from "./pages/upload"
+import GoogleMapAutoComplete from "./pages/googleMap.js"
 
 function RequireAuth({ children }) {
   const location = useLocation()
@@ -42,6 +43,14 @@ const RouteTable = (props) => {
         element={
           <RequireAuth>
             <Upload />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/google-map-autocomplete"
+        element={
+          <RequireAuth>
+            <GoogleMapAutoComplete />
           </RequireAuth>
         }
       />

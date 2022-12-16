@@ -75,6 +75,17 @@ export default function ClippedDrawer({ children }) {
                   </ListItemButton>
                 </ListItem>
               </Link>
+              <Link to="/google-map-autocomplete">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <DriveFolderUploadIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"registration (google map autocomplete)"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             </List>
             <Divider />
             <List>
