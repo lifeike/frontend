@@ -5,7 +5,7 @@ import { geocodeByPlaceId } from "react-google-places-autocomplete"
 import HomeLayout from "@/components/layout/HomeLayout"
 
 const GoogleMapAutoComplete = (props) => {
-  const [value, setValue] = useState(null)
+  const [value, setValue] = useState()
 
   useEffect(() => {
     console.log(value)
@@ -25,7 +25,12 @@ const GoogleMapAutoComplete = (props) => {
           apiKey="AIzaSyB--wzBTOtKZtlXSY9QmLF4Ub5evrU6E8s"
           selectProps={{
             value,
-            onChange: setValue,
+            // onChange: (defaultInputValue) => console.log(defaultInputValue),
+            onChange: (defaultInputValue) =>
+              setValue({
+                ...defaultInputValue,
+                label: "hello",
+              }),
           }}
           apiOptions={{ language: "ca", region: "ca" }}
           // selectProps={{
