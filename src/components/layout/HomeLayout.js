@@ -17,6 +17,7 @@ import MailIcon from "@mui/icons-material/Mail"
 import LiveTvIcon from "@mui/icons-material/LiveTv"
 import DashboardIcon from "@mui/icons-material/Dashboard"
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload"
+import GoogleIcon from "@mui/icons-material/Google"
 import Badge from "@mui/material/Badge"
 
 const drawerWidth = 240
@@ -79,7 +80,7 @@ export default function ClippedDrawer({ children }) {
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      <DriveFolderUploadIcon />
+                      <GoogleIcon />
                     </ListItemIcon>
                     <ListItemText primary={"Registration (google map autocomplete)"} />
                     <Badge badgeContent={0} color="primary"></Badge>
