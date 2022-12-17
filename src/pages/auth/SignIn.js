@@ -22,8 +22,8 @@ function SignIn(props) {
   return (
     <SignInLayout>
       <form className="">
-        <label>Username</label>
-        <input className="login-form" {...register("username", { required: true })} />
+        <label>Email</label>
+        <input className="login-form" {...register("email", { required: true })} />
         <label>Password</label>
         <input className="login-form" {...register("password", { required: true })} />
         {/* errors will return when field validation fails  */}
