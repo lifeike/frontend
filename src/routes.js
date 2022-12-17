@@ -5,6 +5,7 @@ import * as session from "@/utils/session"
 import Movies from "@/pages/movies"
 import EditMovie from "@/pages/movies/EditMovie"
 import SignIn from "@/pages/auth/SignIn"
+import SignUp from "@/pages/auth/SignUp"
 import Dashboard from "@/pages/dashboard"
 import Upload from "@/pages/upload"
 import GoogleMapAutoComplete from "@/pages/googleMap.js"
@@ -23,7 +24,15 @@ const RouteTable = (props) => {
   return (
     <Routes>
       <Route path="/" element={<SignIn />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/sign-up" element={<SignUp />} />
+      <Route
+        path="/dashboard"
+        element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        }
+      />
       <Route
         path="/movies"
         element={
