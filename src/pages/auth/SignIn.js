@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, memo } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import SignInLayout from "@/components/layout/SignInLayout"
 import { connect } from "react-redux"
 import * as actionCreators from "@/store/actionCreators/auth"
@@ -32,7 +32,9 @@ function SignIn(props) {
           <Button variant="contained" onClick={handleSubmit(onSubmit)}>
             Login
           </Button>
-          <Button variant="outlined">Remember me</Button>
+          <Link to="/sign-up">
+            <Button variant="outlined">Sign Up</Button>
+          </Link>
         </div>
       </form>
     </SignInLayout>
