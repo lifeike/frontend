@@ -16,3 +16,16 @@ export function signIn(data) {
     return Promise.resolve(response)
   }
 }
+
+export function signUp(data) {
+  return async (dispatch, getState) => {
+    dispatch({ type: "loading/turnOn" })
+    const [err, response] = await to(AUTH_API.signUp(data))
+    if (err) {
+      dispatch({ type: "loading/turnOff" })
+      return Promise.reject("error")
+    }
+    dispatch({ type: "loading/turnOff" })
+    return Promise.resolve(response)
+  }
+}

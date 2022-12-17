@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, memo } from "react"
 import { useNavigate } from "react-router-dom"
 import SignInLayout from "@/components/layout/SignInLayout"
 import { connect } from "react-redux"
-import * as actionCreators from "@/store/actionCreators/user"
+import * as actionCreators from "@/store/actionCreators/auth"
 import { useForm } from "react-hook-form"
 import Button from "@mui/material/Button"
 

@@ -18,7 +18,7 @@ import MailIcon from "@mui/icons-material/Mail"
 import NotificationsIcon from "@mui/icons-material/Notifications"
 import MoreIcon from "@mui/icons-material/MoreVert"
 import { connect } from "react-redux"
-import * as actionCreators from "../../store/actionCreators/user"
+import * as actionCreators from "../../store/actionCreators/auth"
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",

@@ -1,16 +1,18 @@
 import React, { useState, useRef, useEffect, memo } from "react"
 import SignInLayout from "@/components/layout/SignInLayout"
 import { useForm } from "react-hook-form"
+import { connect } from "react-redux"
+import * as actionCreators from "@/store/actionCreators/auth"
 
 import Button from "@mui/material/Button"
 import DeleteIcon from "@mui/icons-material/Delete"
 import SendIcon from "@mui/icons-material/Send"
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye"
 
-export default function SignUp() {
+function SignUp(props) {
   const [showPassword, setShowPassword] = useState(true)
   const { register, handleSubmit, resetField } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data) => props.signUp(data)
   const handleClear = () => {
     resetField("firstName")
     resetField("lastName")
@@ -45,3 +47,5 @@ export default function SignUp() {
     </SignInLayout>
   )
 }
+
+export default connect(null, actionCreators)(SignUp)

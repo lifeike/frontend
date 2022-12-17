@@ -7,3 +7,11 @@ export function signIn(data) {
     data,
   })
 }
+
+export function signUp(data) {
+  return axios({
+    url: `/auth/sign-up`,
+    method: "post",
+    data,
+  })
+}
