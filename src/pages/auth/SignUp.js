@@ -8,11 +8,12 @@ import Button from "@mui/material/Button"
 import DeleteIcon from "@mui/icons-material/Delete"
 import SendIcon from "@mui/icons-material/Send"
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye"
+import { toast } from "react-toastify"
 
 function SignUp(props) {
   const [showPassword, setShowPassword] = useState(true)
   const { register, handleSubmit, resetField } = useForm()
-  const onSubmit = (data) => props.signUp(data)
+  const onSubmit = (data) => props.signUp(data).then((res) => toast.success(res))
   const handleClear = () => {
     resetField("firstName")
     resetField("lastName")
