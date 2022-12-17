@@ -4,7 +4,7 @@ import HomeLayout from "@/components/layout/HomeLayout"
 const ChatRoom = (props) => {
   return (
     <HomeLayout>
-      <h2>ChatRoom</h2>
+      <h2>Chat Room</h2>
     </HomeLayout>
   )
 }
