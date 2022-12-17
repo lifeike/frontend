@@ -14,14 +14,13 @@ export default function SignUp() {
     <SignInLayout>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>first_name</label>
-        <input className="block border my-2" {...register("firstName", { required: true, maxLength: 20 })} />
+        <input className="block border my-2" {...register("firstName", { required: true })} />
         <label>last_name</label>
-        <input className="block border my-2" {...register("lastName", { pattern: /^[A-Za-z]+$/i })} />
+        <input className="block border my-2" {...register("lastName", { required: true })} />
         <label>email</label>
-        <input className="block border my-2" type="number" {...register("email")} />
+        <input className="block border my-2" type="email" {...register("email", { required: true })} />
         <label>password</label>
-        <input className="block border my-2" type="number" {...register("password")} />
-        {/* <input className="block border my-2" type="submit" /> */}
+        <input className="block border my-2" type="password" {...register("password", { required: true })} />
         <Button variant="outlined" startIcon={<DeleteIcon />}>
           Delete
         </Button>
