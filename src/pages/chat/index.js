@@ -1,29 +1,26 @@
-import React, { useState, useRef, useEffect, memo } from "react"
 import HomeLayout from "@/components/layout/HomeLayout"
-import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css"
-import { MainContainer, ChatContainer, MessageList, Message, MessageInput } from "@chatscope/chat-ui-kit-react"
+import React, { useEffect } from "react"
+import { Widget, addResponseMessage } from "react-chat-widget"
 
-const Chat = (props) => {
+import "react-chat-widget/lib/styles.css"
+import logo from "@/assets/img/car.jpg"
+
+function App() {
+  useEffect(() => {
+    addResponseMessage("Welcome to this **awesome** chat!")
+  }, [])
+
+  const handleNewUserMessage = (newMessage) => {
+    console.log(`New message incoming! ${newMessage}`)
+    // Now send the message throught the backend API
+  }
+
   return (
     <HomeLayout>
-      <div style={{ position: "relative", height: "500px" }}>
-        <MainContainer>
-          <ChatContainer>
-            <MessageList>
-              <Message
-                model={{
-                  message: "Hello my friend",
-                  sentTime: "just now",
-                  sender: "Joe",
-                }}
-              />
-            </MessageList>
-            <MessageInput placeholder="Type message here" />
-          </ChatContainer>
-        </MainContainer>
-      </div>
+      API Documentation: https://github.com/Wolox/react-chat-widget
+      <Widget handleNewUserMessage={handleNewUserMessage} profileAvatar={logo} title="My new awesome title" subtitle="And my cool subtitle" />
     </HomeLayout>
   )
 }
 
-export default Chat
+export default App

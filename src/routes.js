@@ -9,6 +9,7 @@ import Dashboard from "@/pages/dashboard"
 import Upload from "@/pages/upload"
 import GoogleMapAutoComplete from "@/pages/googleMap.js"
 import Chat from "@/pages/chat"
+import ChatRoom from "@/pages/chat-room"
 
 function RequireAuth({ children }) {
   const location = useLocation()
@@ -60,6 +61,14 @@ const RouteTable = (props) => {
         element={
           <RequireAuth>
             <Chat />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/chat-room"
+        element={
+          <RequireAuth>
+            <ChatRoom />
           </RequireAuth>
         }
       />

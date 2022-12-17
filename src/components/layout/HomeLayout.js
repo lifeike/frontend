@@ -97,7 +97,18 @@ export default function ClippedDrawer({ children }) {
                     <ListItemIcon>
                       <ChatIcon />
                     </ListItemIcon>
-                    <ListItemText primary={"Chat room"} />
+                    <ListItemText primary={"Chat"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+              <Link to="/chat-room">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <ChatIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"Chat Room"} />
                     <Badge badgeContent={0} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>
