@@ -19,6 +19,12 @@ function SignIn(props) {
     props.signIn(data).then(() => navigate("/dashboard"))
   }
 
+  const [remember, setRemember] = useState(false)
+  const toggleRememberMe = async () => {
+    console.log(remember)
+    setRemember(!remember)
+  }
+
   return (
     <SignInLayout>
       <form className="">
@@ -28,6 +34,7 @@ function SignIn(props) {
         <input className="login-form" {...register("password", { required: true })} />
         {/* errors will return when field validation fails  */}
         {errors.password && <span>This field is required</span>}
+        <input type="checkbox" className="my-2" onClick={toggleRememberMe} /> <label>Remember Me</label>
         <div className="flex justify-between ">
           <Button variant="contained" onClick={handleSubmit(onSubmit)}>
             Login
