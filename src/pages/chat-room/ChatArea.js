@@ -55,7 +55,6 @@ const ChatArea = (props) => {
             </div>
             <div class="flex-1 bg-indigo-400 text-white p-2 rounded-lg mb-2 relative">
               <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-
               <div class="absolute left-0 top-1/2 transform -translate-x-1/2 rotate-45 w-2 h-2 bg-indigo-400"></div>
             </div>
           </div>
