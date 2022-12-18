@@ -6,10 +6,23 @@ import ListItemText from "@mui/material/ListItemText"
 import ListItemAvatar from "@mui/material/ListItemAvatar"
 import Avatar from "@mui/material/Avatar"
 import Typography from "@mui/material/Typography"
+import ImageIcon from "@mui/icons-material/Image"
+import WorkIcon from "@mui/icons-material/Work"
+import BeachAccessIcon from "@mui/icons-material/BeachAccess"
 
 const FriendsList = (props) => {
   return (
     <>
+      <div className="m-2">
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar>
+              <ImageIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText primary="Feeco Li" secondary="Software Developer" />
+        </ListItem>
+      </div>
       <form className="m-2">
         <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">
           Search
