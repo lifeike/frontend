@@ -9,7 +9,6 @@ import SignUp from "@/pages/auth/SignUp"
 import Dashboard from "@/pages/dashboard"
 import Upload from "@/pages/upload"
 import GoogleMapAutoComplete from "@/pages/googleMap.js"
-import Chat from "@/pages/chat"
 import ChatRoom from "@/pages/chat-room"
 
 function RequireAuth({ children }) {
@@ -62,14 +61,6 @@ const RouteTable = (props) => {
         element={
           <RequireAuth>
             <GoogleMapAutoComplete />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path="/chat"
-        element={
-          <RequireAuth>
-            <Chat />
           </RequireAuth>
         }
       />
