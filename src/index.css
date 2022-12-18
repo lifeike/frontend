@@ -9,4 +9,7 @@
   .login-button {
     @apply p-2 rounded-md;
   }
+  .chat-columns {
+    @apply h-[90vh] rounded-md shadow-md shadow-gray-800;
+  }
 }
