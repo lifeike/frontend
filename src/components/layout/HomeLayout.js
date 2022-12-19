@@ -93,6 +93,17 @@ export default function ClippedDrawer({ children }) {
             </List>
             <Divider />
             <List>
+              <Link to="/blog">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <RssFeedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"blog(text editor)"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
               <Link to="/chat-room">
                 <ListItem disablePadding>
                   <ListItemButton>
@@ -107,17 +118,6 @@ export default function ClippedDrawer({ children }) {
             </List>
             <Divider />
             <List>
-              <Link to="/blog">
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <RssFeedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={"blog(text editor)"} />
-                    <Badge badgeContent={0} color="primary"></Badge>
-                  </ListItemButton>
-                </ListItem>
-              </Link>
               <Link to="/map">
                 <ListItem disablePadding>
                   <ListItemButton>
