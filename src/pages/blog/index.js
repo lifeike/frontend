@@ -15,7 +15,7 @@ const Blog = (props) => {
       <h2>Edit User Blog</h2>
       <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats} />
       <Button onClick={submit} className="my-2" variant="contained">
-        Contained
+        Submit Text
       </Button>
 
       <h2>Display User Blog</h2>
