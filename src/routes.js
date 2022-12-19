@@ -11,6 +11,7 @@ import Upload from "@/pages/upload"
 import GoogleMapAutoComplete from "@/pages/googleMap.js"
 import ChatRoom from "@/pages/chat-room"
 import Blog from "@/pages/blog"
+import Pdf from "@/pages/pdf"
 
 function RequireAuth({ children }) {
   const location = useLocation()
@@ -78,6 +79,14 @@ const RouteTable = (props) => {
         element={
           <RequireAuth>
             <Blog />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/pdf"
+        element={
+          <RequireAuth>
+            <Pdf />
           </RequireAuth>
         }
       />
