@@ -7,17 +7,9 @@ export function getUser(data) {
     data,
   })
 }
-export function addUser(data) {
+export function searchUser({ keyword }) {
   return axios({
-    url: `/user/addUser`,
-    method: "post",
-    data,
-  })
-}
-export function updateUser(data) {
-  return axios({
-    url: `/user/updateUser`,
-    method: "put",
-    data,
+    url: `/user/search?keyword=${keyword}`,
+    method: "get",
   })
 }
