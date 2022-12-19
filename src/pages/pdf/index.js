@@ -1,5 +1,9 @@
 import React, { useState } from "react"
-import { Document, Page } from "react-pdf"
+//For example, if you want to use React-PDF with Webpack 5, instead of writing:
+// import { Document, Page } from "react-pdf"
+//write:
+import { Document, Page } from "react-pdf/dist/esm/entry.webpack5"
+
 import HomeLayout from "@/components/layout/HomeLayout"
 
 function Pdf() {
@@ -12,7 +16,7 @@ function Pdf() {
 
   return (
     <HomeLayout>
-      <Document file="somefile.pdf" onLoadSuccess={onDocumentLoadSuccess}>
+      <Document file={{ url: "https://d1.awsstatic.com/whitepapers/aws-overview.pdf" }} onLoadSuccess={onDocumentLoadSuccess}>
         <Page pageNumber={pageNumber} />
       </Document>
       <p>
