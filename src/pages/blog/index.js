@@ -19,6 +19,7 @@ const Blog = (props) => {
       </Button>
 
       <h2>Display User Blog</h2>
+      <div dangerouslySetInnerHTML={{ __html: value }} />
     </HomeLayout>
   )
 }
