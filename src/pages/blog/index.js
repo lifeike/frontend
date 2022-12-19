@@ -12,13 +12,13 @@ const Blog = (props) => {
 
   return (
     <HomeLayout>
-      <h2>Edit User Blog</h2>
+      <h2 className="text-red-800 my-4">Edit User Blog</h2>
       <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats} />
       <Button onClick={submit} className="my-2" variant="contained">
         Submit Text
       </Button>
 
-      <h2>Display User Blog</h2>
+      <h2 className="text-red-800 my-4">Display User Blog</h2>
       <div dangerouslySetInnerHTML={{ __html: value }} />
     </HomeLayout>
   )
