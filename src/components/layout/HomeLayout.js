@@ -102,19 +102,19 @@ export default function ClippedDrawer({ children }) {
                 </ListItemButton>
               </ListItem>
             </Link>
+            <Link to="/pdf">
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <PictureAsPdfIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={"PDF(viewer)"} />
+                  <Badge badgeContent={0} color="primary"></Badge>
+                </ListItemButton>
+              </ListItem>
+            </Link>
             <Divider />
             <List>
-              <Link to="/pdf">
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <PictureAsPdfIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={"PDF(viewer)"} />
-                    <Badge badgeContent={0} color="primary"></Badge>
-                  </ListItemButton>
-                </ListItem>
-              </Link>
               <Link to="/chat-room">
                 <ListItem disablePadding>
                   <ListItemButton>
