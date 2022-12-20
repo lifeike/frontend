@@ -9,3 +9,11 @@ export function searchUser(data) {
     return response
   }
 }
+
+export function getUser(data) {
+  return async (dispatch, getState) => {
+    let [err, response] = await to(USER_API.getUser())
+    if (err) return Promise.reject(err.message)
+    return response
+  }
+}

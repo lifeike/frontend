@@ -1,4 +1,7 @@
 import React, { useState, useRef, useEffect, memo } from "react"
+import { v4 as uuidv4 } from "uuid"
+import { connect } from "react-redux"
+import * as actionCreators from "@/store/actionCreators/user"
 import Autocomplete from "@mui/material/Autocomplete"
 import TextField from "@mui/material/TextField"
 import List from "@mui/material/List"
@@ -26,6 +29,10 @@ const FriendsList = (props) => {
   }
 
   const [usersResult, setusersResult] = useState([])
+  useEffect(() => {
+    props.getUser().then((res) => setusersResult(res))
+    console.log(usersResult)
+  }, [])
 
   return (
     <>
@@ -40,15 +47,16 @@ const FriendsList = (props) => {
         </ListItem>
       </div>
       <div className="m-2">
-        <Autocomplete
-          id="free-solo-demo"
-          freeSolo
-          options={usersResult.map((option) => option.title)}
-          renderInput={(params) => {
-            console.log(params.inputProps.value)
-            return <TextField {...params} label="search user" />
-          }}
-        />
+        {usersResult && (
+          <Autocomplete
+            id="free-solo-demo"
+            freeSolo
+            options={usersResult.map((option) => option.first_name + " " + option.last_name)}
+            renderInput={(params) => {
+              return <TextField {...params} label="search user" />
+            }}
+          />
+        )}
       </div>
 
       <div className="grid place-items-center">
@@ -117,4 +125,4 @@ const FriendsList = (props) => {
   )
 }
 
-export default FriendsList
+export default connect(null, actionCreators)(FriendsList)
