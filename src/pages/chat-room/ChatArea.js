@@ -12,6 +12,11 @@ import WorkIcon from "@mui/icons-material/Work"
 import BeachAccessIcon from "@mui/icons-material/BeachAccess"
 
 const ChatArea = (props) => {
+  const sendMessage = async () => {
+    //send message
+    props.sendMessage({})
+  }
+
   return (
     <>
       <div className="flex justify-between">
@@ -70,7 +75,6 @@ const ChatArea = (props) => {
             </div>
             <div className="flex-1 bg-indigo-100 text-gray-800 p-2 rounded-lg mb-2 relative">
               <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-
               <div className="absolute right-0 top-1/2 transform translate-x-1/2 rotate-45 w-2 h-2 bg-indigo-100"></div>
             </div>
           </div>
@@ -105,7 +109,7 @@ const ChatArea = (props) => {
           <input className="w-full py-2 rounded-full border border-gray-200" type="text" defaultValue="" placeholder="  Aa" autoFocus />
         </div>
         <div>
-          <button className="inline-flex hover:bg-indigo-50 rounded-full p-2" type="button">
+          <button onClick={sendMessage} className="inline-flex hover:bg-indigo-50 rounded-full p-2" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 strokeLinecap="round"

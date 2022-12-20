@@ -37,8 +37,8 @@ const FriendsList = (props) => {
   useEffect(() => {
     props.getUser().then((res) => setusersResult(res))
     props.getChats().then((res) => setChatList(res))
-    console.log(chatList)
   }, [])
+  console.log(chatList)
 
   return (
     <>
@@ -84,22 +84,12 @@ const FriendsList = (props) => {
           {chatList &&
             chatList.map((item, index) => {
               return (
-                <div key={index}>
+                <div key={index} onClick={() => alert("test")}>
                   <ListItem alignItems="flex-start">
                     <ListItemAvatar>
                       <Avatar alt="Remy Sharp" src="https://robohash.org/voluptatumrepudiandaeaut.png?size=50x50&set=set1" />
                     </ListItemAvatar>
-                    <ListItemText
-                      primary="Brunch this weekend?"
-                      secondary={
-                        <React.Fragment>
-                          <Typography sx={{ display: "inline" }} component="span" variant="body2" color="text.primary">
-                            Ali Connors
-                          </Typography>
-                          {" — I'll be in your neighborhood doing errands this…"}
-                        </React.Fragment>
-                      }
-                    />
+                    <ListItemText primary={item.users[1]} secondary={<React.Fragment>{" latest message.... "}</React.Fragment>} />
                   </ListItem>
                   <Divider variant="inset" component="li" />
                 </div>
