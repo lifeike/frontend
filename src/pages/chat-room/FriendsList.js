@@ -53,7 +53,13 @@ const FriendsList = (props) => {
             onChange={(event, newValue) => {
               let userId = newValue && newValue.split(" ")[2]
               console.log(userId)
-              props.createChat(userId).then((res) => console.log("created."))
+              let obj = {
+                userId,
+                isGroupChat: false,
+                users: [],
+                chatName: props.user.id,
+              }
+              props.createChat({ userId }).then((res) => console.log("created."))
             }}
             freeSolo
             options={usersResult.map((option) => option.first_name + " " + option.last_name + " " + option._id)}
@@ -130,7 +136,7 @@ const FriendsList = (props) => {
   )
 }
 
-export default connect(null, {
+export default connect((state) => state.user, {
   ...actionCreators,
   ...actionCreatorstwo,
 })(FriendsList)

@@ -7,6 +7,6 @@ export function createChat(data) {
     if (err) {
       return Promise.reject(err.message)
     }
-    dispatch({ type: "loading/turnOff" })
+    return response
   }
 }
