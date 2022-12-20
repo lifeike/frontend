@@ -7,3 +7,10 @@ export function createChat(data) {
     data,
   })
 }
+
+export function getChats() {
+  return axios({
+    url: `/chat`,
+    method: "get",
+  })
+}

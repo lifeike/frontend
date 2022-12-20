@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, memo } from "react"
+import React, { useState, useRef, useEffect, memo, useId } from "react"
 import { v4 as uuidv4 } from "uuid"
 import { connect } from "react-redux"
 import * as actionCreators from "@/store/actionCreators/user"
@@ -21,6 +21,7 @@ import PhoneIcon from "@mui/icons-material/Phone"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import PersonPinIcon from "@mui/icons-material/PersonPin"
 import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined"
+import { toast } from "react-toastify"
 
 const FriendsList = (props) => {
   const [value, setValue] = React.useState(0)
@@ -30,8 +31,13 @@ const FriendsList = (props) => {
   }
 
   const [usersResult, setusersResult] = useState([])
+  const [chatList, setChatList] = useState([])
+  const [page, setPage] = useState()
+
   useEffect(() => {
     props.getUser().then((res) => setusersResult(res))
+    props.getChats().then((res) => setChatList(res))
+    console.log(chatList)
   }, [])
 
   return (
@@ -50,19 +56,16 @@ const FriendsList = (props) => {
         {usersResult && (
           <Autocomplete
             id="free-solo-demo"
-            onChange={(event, newValue) => {
-              let userId = newValue && newValue.split(" ")[2]
-              console.log(userId)
-              let obj = {
-                userId,
-                isGroupChat: false,
-                users: [],
-                chatName: props.user.id,
-              }
-              props.createChat({ userId }).then((res) => console.log("created."))
+            onChange={async (event, newValue) => {
+              let hisEmail = newValue && newValue.split(" ")[3] //email to talk to
+              if (hisEmail)
+                await props
+                  .createChat({ userId: props.user._id, isGroupChat: false, users: [props.user.email, hisEmail], chatName: props.user._id })
+                  .then((res) => toast.success("new chat created."))
+              await props.getChats().then((res) => setChatList(res))
             }}
             freeSolo
-            options={usersResult.map((option) => option.first_name + " " + option.last_name + " " + option._id)}
+            options={usersResult.map((option) => option.first_name + " " + option.last_name + " " + option._id + " " + option.email)}
             renderInput={(params) => {
               return <TextField {...params} label="search user" />
             }}
@@ -78,56 +81,30 @@ const FriendsList = (props) => {
       </div>
       {value == 0 ? (
         <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
-          <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-              <Avatar alt="Remy Sharp" src="https://robohash.org/voluptatumrepudiandaeaut.png?size=50x50&set=set1" />
-            </ListItemAvatar>
-            <ListItemText
-              primary="Brunch this weekend?"
-              secondary={
-                <React.Fragment>
-                  <Typography sx={{ display: "inline" }} component="span" variant="body2" color="text.primary">
-                    Ali Connors
-                  </Typography>
-                  {" — I'll be in your neighborhood doing errands this…"}
-                </React.Fragment>
-              }
-            />
-          </ListItem>
-          <Divider variant="inset" component="li" />
-          <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-              <Avatar alt="Travis Howard" src="https://robohash.org/numquamvoluptatemagnam.png?size=50x50&set=set1" />
-            </ListItemAvatar>
-            <ListItemText
-              primary="Summer BBQ"
-              secondary={
-                <React.Fragment>
-                  <Typography sx={{ display: "inline" }} component="span" variant="body2" color="text.primary">
-                    to Scott, Alex, Jennifer
-                  </Typography>
-                  {" — Wish I could come, but I'm out of town this…"}
-                </React.Fragment>
-              }
-            />
-          </ListItem>
-          <Divider variant="inset" component="li" />
-          <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-              <Avatar alt="Cindy Baker" src="https://robohash.org/reprehenderitplaceatqui.png?size=50x50&set=set1" />
-            </ListItemAvatar>
-            <ListItemText
-              primary="Oui Oui"
-              secondary={
-                <React.Fragment>
-                  <Typography sx={{ display: "inline" }} component="span" variant="body2" color="text.primary">
-                    Sandra Adams
-                  </Typography>
-                  {" — Do you have Paris recommendations? Have you ever…"}
-                </React.Fragment>
-              }
-            />
-          </ListItem>
+          {chatList &&
+            chatList.map((item, index) => {
+              return (
+                <div key={index}>
+                  <ListItem alignItems="flex-start">
+                    <ListItemAvatar>
+                      <Avatar alt="Remy Sharp" src="https://robohash.org/voluptatumrepudiandaeaut.png?size=50x50&set=set1" />
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary="Brunch this weekend?"
+                      secondary={
+                        <React.Fragment>
+                          <Typography sx={{ display: "inline" }} component="span" variant="body2" color="text.primary">
+                            Ali Connors
+                          </Typography>
+                          {" — I'll be in your neighborhood doing errands this…"}
+                        </React.Fragment>
+                      }
+                    />
+                  </ListItem>
+                  <Divider variant="inset" component="li" />
+                </div>
+              )
+            })}
         </List>
       ) : (
         ""
