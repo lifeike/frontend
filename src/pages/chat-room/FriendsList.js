@@ -31,7 +31,6 @@ const FriendsList = (props) => {
   const [usersResult, setusersResult] = useState([])
   useEffect(() => {
     props.getUser().then((res) => setusersResult(res))
-    console.log(usersResult)
   }, [])
 
   return (
@@ -50,8 +49,12 @@ const FriendsList = (props) => {
         {usersResult && (
           <Autocomplete
             id="free-solo-demo"
+            onChange={(event, newValue) => {
+              let userId = newValue && newValue.split(" ")[2]
+              props.createChat(userId).then((res) => console.log("created."))
+            }}
             freeSolo
-            options={usersResult.map((option) => option.first_name + " " + option.last_name)}
+            options={usersResult.map((option) => option.first_name + " " + option.last_name + " " + option._id)}
             renderInput={(params) => {
               return <TextField {...params} label="search user" />
             }}
