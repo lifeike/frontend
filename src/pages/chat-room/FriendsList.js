@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, memo } from "react"
 import { v4 as uuidv4 } from "uuid"
 import { connect } from "react-redux"
 import * as actionCreators from "@/store/actionCreators/user"
+import * as actionCreatorstwo from "@/store/actionCreators/chat"
 import Autocomplete from "@mui/material/Autocomplete"
 import TextField from "@mui/material/TextField"
 import List from "@mui/material/List"
@@ -51,6 +52,7 @@ const FriendsList = (props) => {
             id="free-solo-demo"
             onChange={(event, newValue) => {
               let userId = newValue && newValue.split(" ")[2]
+              console.log(userId)
               props.createChat(userId).then((res) => console.log("created."))
             }}
             freeSolo
@@ -128,4 +130,7 @@ const FriendsList = (props) => {
   )
 }
 
-export default connect(null, actionCreators)(FriendsList)
+export default connect(null, {
+  ...actionCreators,
+  ...actionCreatorstwo,
+})(FriendsList)
