@@ -23,13 +23,12 @@ const ChatArea = (props) => {
   } = useForm()
   const onSubmit = async (data) => {
     //send message
-    let obj = {
+    props.sendMessage({
       sender: { id: props.user._id, name: props.user.first_name },
       content: data.content,
       chat: props.chatId, //chat is chatid
       updateAt: new Date(),
-    }
-    props.sendMessage(obj)
+    })
   }
 
   return (
