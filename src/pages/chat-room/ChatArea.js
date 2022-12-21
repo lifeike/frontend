@@ -31,6 +31,11 @@ const ChatArea = (props) => {
     })
   }
 
+  useEffect(() => {
+    //get message list by chat id
+    props.getMessagesByChatId(props.chatId)
+  }, [props.chatId])
+
   return (
     <>
       <div className="flex justify-between">

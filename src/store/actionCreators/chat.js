@@ -36,3 +36,11 @@ export function chooseChat(data) {
     dispatch({ type: "chat/setChatId", payload: data })
   }
 }
+
+export function getMessagesByChatId(data) {
+  return async (dispatch, getState) => {
+    let [err, response] = await to(CHAT_API.getMessagesByChatId(data))
+    if (err) return Promise.reject(err.message)
+    return response
+  }
+}

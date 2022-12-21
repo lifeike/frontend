@@ -22,3 +22,11 @@ export function sendMessage(data) {
     data,
   })
 }
+
+export function getMessagesByChatId(data) {
+  return axios({
+    url: `/chat/getMessagesByChatId/${data}`,
+    method: "get",
+    // paramas: data,
+  })
+}
