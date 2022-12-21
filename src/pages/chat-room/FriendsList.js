@@ -38,7 +38,10 @@ const FriendsList = (props) => {
     props.getUser().then((res) => setusersResult(res))
     props.getChats().then((res) => setChatList(res))
   }, [])
-  console.log(chatList)
+
+  const chooseChat = async (chatId) => {
+    props.chooseChat(chatId)
+  }
 
   return (
     <>
@@ -84,7 +87,7 @@ const FriendsList = (props) => {
           {chatList &&
             chatList.map((item, index) => {
               return (
-                <div key={index} onClick={() => alert("test")}>
+                <div key={index} onClick={() => chooseChat(item._id)}>
                   <ListItem alignItems="flex-start">
                     <ListItemAvatar>
                       <Avatar alt="Remy Sharp" src="https://robohash.org/voluptatumrepudiandaeaut.png?size=50x50&set=set1" />

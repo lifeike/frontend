@@ -14,3 +14,11 @@ export function getChats() {
     method: "get",
   })
 }
+
+export function sendMessage(data) {
+  return axios({
+    url: `/chat/createMessage`,
+    method: "post",
+    data,
+  })
+}

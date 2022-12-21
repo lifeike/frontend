@@ -1,4 +1,7 @@
 import React, { useState, useRef, useEffect, memo } from "react"
+import { connect } from "react-redux"
+import * as actionCreators from "@/store/actionCreators/chat"
+import { useForm } from "react-hook-form"
 import List from "@mui/material/List"
 import Stack from "@mui/material/Stack"
 import ListItem from "@mui/material/ListItem"
@@ -12,9 +15,21 @@ import WorkIcon from "@mui/icons-material/Work"
 import BeachAccessIcon from "@mui/icons-material/BeachAccess"
 
 const ChatArea = (props) => {
-  const sendMessage = async () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
+  const onSubmit = async (data) => {
     //send message
-    props.sendMessage({})
+    let obj = {
+      sender: { id: props.user._id, name: props.user.first_name },
+      content: data.content,
+      chat: props.chatId, //chat is chatid
+      updateAt: new Date(),
+    }
+    props.sendMessage(obj)
   }
 
   return (
@@ -105,24 +120,27 @@ const ChatArea = (props) => {
             </svg>
           </button>
         </div>
-        <div className="w-full mx-2 py-2 ">
-          <input className="w-full py-2 rounded-full border border-gray-200" type="text" defaultValue="" placeholder="  Aa" autoFocus />
-        </div>
-        <div>
-          <button onClick={sendMessage} className="inline-flex hover:bg-indigo-50 rounded-full p-2" type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              />
-            </svg>
-          </button>
-        </div>
+
+        <form className="flex justify-between">
+          <div className="w-full mx-2 py-2 ">
+            <input className="w-full py-2 rounded-full border border-gray-200" {...register("content")} />
+          </div>
+          <div>
+            <button onClick={handleSubmit(onSubmit)} className="inline-flex hover:bg-indigo-50 rounded-full p-2" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
       </div>
     </>
   )
 }
 
-export default ChatArea
+export default connect((state) => ({ ...state.user, ...state.chat }), actionCreators)(ChatArea)

@@ -20,3 +20,19 @@ export function getChats() {
     return response
   }
 }
+
+export function sendMessage(data) {
+  return async (dispatch, getState) => {
+    let [err, response] = await to(CHAT_API.sendMessage(data))
+    if (err) {
+      return Promise.reject(err.message)
+    }
+    return response
+  }
+}
+
+export function chooseChat(data) {
+  return async (dispatch, getState) => {
+    dispatch({ type: "chat/setChatId", payload: data })
+  }
+}
