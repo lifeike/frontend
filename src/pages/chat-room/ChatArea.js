@@ -31,9 +31,13 @@ const ChatArea = (props) => {
     })
   }
 
+  const [messageList, setMessageList] = useState([])
   useEffect(() => {
     //get message list by chat id
-    props.getMessagesByChatId(props.chatId)
+    props.getMessagesByChatId(props.chatId).then((res) => {
+      console.log(res)
+      setMessageList(res)
+    })
   }, [props.chatId])
 
   return (
@@ -67,21 +71,25 @@ const ChatArea = (props) => {
       </div>
       <div className="h-[70vh] px-2 flex flex-col border shadow-md bg-white">
         <div className="flex-1 px-4 py-4 overflow-y-auto">
-          <div className="flex items-center mb-4">
-            <div className="flex-none flex flex-col items-center space-y-1 mr-4">
-              <img
-                className="rounded-full w-10 h-10"
-                src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              />
-              <a href="#" className="block text-xs hover:underline">
-                John Doe
-              </a>
-            </div>
-            <div className="flex-1 bg-indigo-400 text-white p-2 rounded-lg mb-2 relative">
-              <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-              <div className="absolute left-0 top-1/2 transform -translate-x-1/2 rotate-45 w-2 h-2 bg-indigo-400"></div>
-            </div>
-          </div>
+          {messageList.map((item) => {
+            return (
+              <div className="flex items-center flex-row-reverse mb-4">
+                <div className="flex-none flex flex-col items-center space-y-1 ml-4">
+                  <img
+                    className="rounded-full w-10 h-10"
+                    src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  />
+                  <a href="#" className="block text-xs hover:underline">
+                    {item.sender.name}
+                  </a>
+                </div>
+                <div className="flex-1 bg-indigo-100 text-gray-800 p-2 rounded-lg mb-2 relative">
+                  <div>{item.content}</div>
+                  <div className="absolute right-0 top-1/2 transform translate-x-1/2 rotate-45 w-2 h-2 bg-indigo-100"></div>
+                </div>
+              </div>
+            )
+          })}
           <div className="flex items-center flex-row-reverse mb-4">
             <div className="flex-none flex flex-col items-center space-y-1 ml-4">
               <img
@@ -89,11 +97,11 @@ const ChatArea = (props) => {
                 src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
               />
               <a href="#" className="block text-xs hover:underline">
-                Jesse
+                receiver
               </a>
             </div>
             <div className="flex-1 bg-indigo-100 text-gray-800 p-2 rounded-lg mb-2 relative">
-              <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+              <div>2</div>
               <div className="absolute right-0 top-1/2 transform translate-x-1/2 rotate-45 w-2 h-2 bg-indigo-100"></div>
             </div>
           </div>
@@ -104,11 +112,11 @@ const ChatArea = (props) => {
                 src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
               />
               <a href="#" className="block text-xs hover:underline">
-                John Doe
+                sender
               </a>
             </div>
             <div className="flex-1 bg-indigo-400 text-white p-2 rounded-lg mb-2 relative">
-              <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+              <div>3</div>
 
               <div className="absolute left-0 top-1/2 transform -translate-x-1/2 rotate-45 w-2 h-2 bg-indigo-400"></div>
             </div>
