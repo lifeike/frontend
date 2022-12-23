@@ -8,9 +8,12 @@ import io from "socket.io-client"
 
 const ChatRoom = (props) => {
   let socket = null
+  const [connected, setConnected] = useState(false)
+
   useEffect(() => {
     socket = io("http://localhost:8080")
     socket.emit("setup", props.user)
+    socket.on("connected", () => setConnected(true))
   }, [])
 
   return (
