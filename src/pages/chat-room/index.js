@@ -10,12 +10,13 @@ const ChatRoom = (props) => {
   const [socket, setSocket] = useState()
   const [connected, setConnected] = useState(false)
 
+  const loadSocket = async () => {
+    setSocket(io("http://localhost:8080"))
+    await socket.emit("setup", props.user)
+    await socket.on("connected", () => setConnected(true))
+  }
+
   useEffect(() => {
-    const loadSocket = async () => {
-      setSocket(io("http://localhost:8080"))
-      await socket.emit("setup", props.user)
-      await socket.on("connected", () => setConnected(true))
-    }
     loadSocket()
   }, [])
 
