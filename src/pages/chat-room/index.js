@@ -7,21 +7,22 @@ import ChatArea from "./ChatArea"
 import io from "socket.io-client"
 
 const ChatRoom = (props) => {
-  let socket = null
+  const [socket, setSocket] = useState()
   const [connected, setConnected] = useState(false)
 
   useEffect(() => {
-    socket = io("http://localhost:8080")
-    socket.emit("setup", props.user)
-    socket.on("connected", () => setConnected(true))
+    const loadSocket = async () => {
+      setSocket(io("http://localhost:8080"))
+      await socket.emit("setup", props.user)
+      await socket.on("connected", () => setConnected(true))
+    }
+    loadSocket()
   }, [])
 
   return (
     <HomeLayout>
       <div className="grid grid-cols-4 space-x-2 ">
-        <div className="col-span-1  chat-columns">
-          <FriendsList />
-        </div>
+        <div className="col-span-1  chat-columns">{socket && <FriendsList socket={socket} />}</div>
         <div className="col-span-2  chat-columns">
           <ChatArea />
         </div>

@@ -41,6 +41,7 @@ const FriendsList = (props) => {
 
   const chooseChat = async (chatId) => {
     props.chooseChat(chatId)
+    props.socket.emit("join chat", chatId)
   }
 
   return (
