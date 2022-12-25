@@ -29,7 +29,21 @@ const ChatArea = (props) => {
       chat: props.chatId, //chat is chatid
       updateAt: new Date(),
     })
+    props.socket.emit("new message", {
+      sender: { id: props.user._id, name: props.user.first_name },
+      content: data.content,
+      chat: props.chatId, //chat is chatid
+      updateAt: new Date(),
+    })
   }
+
+  useEffect(() => {
+    //every time receive new mesage, update
+    props.socket.on("message received.", (newMessageReceived) => {
+      console.log(newMessageReceived)
+      setMessageList([...messageList, newMessageReceived])
+    })
+  })
 
   const [messageList, setMessageList] = useState([])
   useEffect(() => {

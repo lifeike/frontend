@@ -24,9 +24,7 @@ const ChatRoom = (props) => {
     <HomeLayout>
       <div className="grid grid-cols-4 space-x-2 ">
         <div className="col-span-1  chat-columns">{socket && <FriendsList socket={socket} />}</div>
-        <div className="col-span-2  chat-columns">
-          <ChatArea />
-        </div>
+        <div className="col-span-2  chat-columns">{socket && <ChatArea socket={socket} />}</div>
         <div className="col-span-1  chat-columns">
           <FriendProfile />
         </div>
