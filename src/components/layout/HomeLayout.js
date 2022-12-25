@@ -151,6 +151,72 @@ export default function ClippedDrawer({ children }) {
                   </ListItemButton>
                 </ListItem>
               </Link>
+              <Link to="/bullet-chat">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MissedVideoCallIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"弹幕"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+              <Link to="/multiplayers-game">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MissedVideoCallIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"五子棋"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+              <Link to="/cms">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MissedVideoCallIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"协同编辑文档"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+              <Link to="/real-time-news">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MissedVideoCallIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"体育实时更新(股票)"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+              <Link to="/video-chat">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MissedVideoCallIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"视频会议聊天"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+              <Link to="/iot">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MissedVideoCallIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"智能家居"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             </List>
           </Box>
         </Drawer>
