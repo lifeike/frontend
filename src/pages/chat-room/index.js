@@ -5,7 +5,7 @@ const ChatRoom = (props) => {
   useEffect(() => {
     const ws = new WebSocket("wss://ws.bitstamp.net")
     ws.onopen = (event) => {
-      ws.send(JSON.stringify(apiCall))
+      ws.send(JSON.stringify("client established connection."))
     }
     ws.onmessage = function (event) {
       const json = JSON.parse(event.data)
