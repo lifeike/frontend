@@ -25,6 +25,10 @@ const ChatRoom = (props) => {
       <h2>should be under APP component or index.js file.</h2>
       <h2>for demonstration purpose, init WebSocket in this component only</h2>
       <h2>example: https://github.com/websockets/ws/blob/master/examples/server-stats/index.js</h2>
+      <div>
+        <div> left</div>
+        <div> right</div>
+      </div>
       <button className="bg-gray-400 p-2" onClick={sendMessage}>
         send message
       </button>

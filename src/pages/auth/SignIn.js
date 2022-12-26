@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom"
 import SignInLayout from "@/components/layout/SignInLayout"
 import { connect } from "react-redux"
 import * as actionCreators from "@/store/actionCreators/auth"
+import * as session from "@/utils/session"
 import { useForm } from "react-hook-form"
 import Button from "@mui/material/Button"
 
@@ -15,7 +16,13 @@ function SignIn(props) {
     formState: { errors },
   } = useForm()
 
+  useEffect(() => {
+    //if session
+    if (session.isAuthenticated()) navigate("/dashboard")
+  }, [])
+
   const onSubmit = (data) => {
+    //login button
     props.signIn(data).then(() => navigate("/dashboard"))
   }
 
