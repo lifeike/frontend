@@ -27,10 +27,10 @@ const ChatRoom = (props) => {
       <h2>example: https://github.com/websockets/ws/blob/master/examples/server-stats/index.js</h2>
       <div className="w-full border border-black grid grid-cols-4">
         <div className="col-span-1 border border-black">
-          <div>room list</div>
-          <div>room list</div>
-          <div>room list</div>
-          <div>room list</div>
+          <div className="p-2 border m-2 rounded-sm">room 1</div>
+          <div className="p-2 border m-2 rounded-sm">room 2</div>
+          <div className="p-2 border m-2 rounded-sm">room 3</div>
+          <div className="p-2 border m-2 rounded-sm">room 4</div>
         </div>
         <div className="col-span-3 border border-black">
           <div> chat area</div>
