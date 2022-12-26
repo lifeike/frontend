@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, memo } from "react"
+import { connect } from "react-redux"
 import HomeLayout from "@/components/layout/HomeLayout"
 
 const ChatRoom = (props) => {
@@ -6,7 +7,7 @@ const ChatRoom = (props) => {
   useEffect(() => {
     ws = new WebSocket("ws://localhost:8080")
     ws.onopen = (event) => {
-      ws.send(JSON.stringify("client established connection."))
+      ws.send(JSON.stringify(props.user))
     }
     ws.onmessage = function (message) {
       console.log(message.data)
@@ -31,4 +32,4 @@ const ChatRoom = (props) => {
   )
 }
 
-export default ChatRoom
+export default connect((state) => state.user, null)(ChatRoom)
