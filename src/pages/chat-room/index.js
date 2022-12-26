@@ -7,7 +7,7 @@ const ChatRoom = (props) => {
   useEffect(() => {
     ws = new WebSocket("ws://localhost:8080")
     ws.onopen = (event) => {
-      ws.send(JSON.stringify(props.user))
+      ws.send(JSON.stringify({ type: "new connection", payload: props.user }))
     }
     ws.onmessage = function (message) {
       console.log(message.data)
