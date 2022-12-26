@@ -5,10 +5,9 @@ import HomeLayout from "@/components/layout/HomeLayout"
 const ChatRoom = (props) => {
   const [roomId, setroomId] = useState()
   const inputRef = useRef(null)
-  let ws = null
+  let ws = new WebSocket("ws://localhost:8080")
 
   useEffect(() => {
-    ws = new WebSocket("ws://localhost:8080")
     ws.onopen = (event) => {
       ws.send(JSON.stringify({ type: "new connection", payload: props.user }))
     }
@@ -20,12 +19,13 @@ const ChatRoom = (props) => {
   }, [])
 
   const sendMessage = async () => {
-    ws.send({ meta: "", roomId, message: inputRef.current.value })
+    ws.send(JSON.stringify({ meta: "", room: roomId, message: inputRef.current.value }))
   }
 
   const joinRoom = async (roomId) => {
     setroomId(roomId)
-    ws.send({ meta: "join", roomId, message: "I have joined" })
+    console.log(ws)
+    ws.send(JSON.stringify({ meta: "join", room: roomId, message: "I have joined" }))
   }
 
   return (
