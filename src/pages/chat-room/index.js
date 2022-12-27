@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import HomeLayout from "@/components/layout/HomeLayout"
 
 const ChatRoom = (props) => {
-  const [roomId, setroomId] = useState()
+  const [currentRoom, setcurrentRoom] = useState(0)
   const inputRef = useRef(null)
   const [ws, setWs] = useState(new WebSocket("ws://localhost:8080"))
   const [messageList, setMessageList] = useState([])
@@ -14,7 +14,7 @@ const ChatRoom = (props) => {
     }
     ws.onmessage = function (message) {
       let response = JSON.parse(message.data)
-      if (response.room === roomId) setMessageList((messageList) => [...messageList, response.message])
+      setMessageList((messageList) => [...messageList, response.message])
     }
     //clean up function
     return () => ws.close()
@@ -24,9 +24,13 @@ const ChatRoom = (props) => {
     ws.send(JSON.stringify({ meta: "message", room: roomId, message: inputRef.current.value }))
   }
 
-  const joinRoom = async (roomId) => {
-    setroomId(roomId)
-    ws.send(JSON.stringify({ meta: "join", room: roomId, message: "I have joined" }))
+  const joinRoom = async (roomNumber) => {
+    setcurrentRoom(roomNumber)
+    if (roomNumber && currentRoom == 0) {
+      ws.send(JSON.stringify({ meta: "join", room: roomNumber, message: "I have joined" }))
+    } else if (roomNumber && roomNumber != currentRoom) {
+      ws.send(JSON.stringify({ meta: "leave", room: roomNumber, message: "I have joined" }))
+    }
   }
 
   return (
