@@ -5,7 +5,7 @@ import HomeLayout from "@/components/layout/HomeLayout"
 const ChatRoom = (props) => {
   const [roomId, setroomId] = useState()
   const inputRef = useRef(null)
-  let ws = new WebSocket("ws://localhost:8080")
+  const [ws, setWs] = useState(new WebSocket("ws://localhost:8080"))
 
   useEffect(() => {
     ws.onopen = (event) => {
@@ -19,7 +19,7 @@ const ChatRoom = (props) => {
   }, [])
 
   const sendMessage = async () => {
-    ws.send(JSON.stringify({ meta: "", room: roomId, message: inputRef.current.value }))
+    ws.send(JSON.stringify({ meta: "message", room: roomId, message: inputRef.current.value }))
   }
 
   const joinRoom = async (roomId) => {
