@@ -13,9 +13,8 @@ const ChatRoom = (props) => {
       ws.send(JSON.stringify({ type: "new connection", payload: props.user }))
     }
     ws.onmessage = function (message) {
-      console.log(message.data.message)
-      setMessageList([...messageList, message.data.message])
-      console.log(messageList)
+      let response = JSON.parse(message.data)
+      if (response.room === roomId) setMessageList((messageList) => [...messageList, response.message])
     }
     //clean up function
     return () => ws.close()
