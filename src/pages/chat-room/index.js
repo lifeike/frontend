@@ -39,8 +39,8 @@ const ChatRoom = (props) => {
       <h2>should be under APP component or index.js file.</h2>
       <h2>for demonstration purpose, init WebSocket in this component only</h2>
       <div className="w-full border border-black grid grid-cols-4">
-        <div className="col-span-1 border border-black">
-          <div className="p-2 border m-2 rounded-sm grid place-items-center">room list</div>
+        <div className="col-span-1 border border-black h-[80vh]">
+          <div className="p-2 border m-2 rounded-sm grid place-items-center bg-gray-200">room list</div>
           <div className="p-2 border m-2 rounded-sm grid place-items-center" onClick={() => joinRoom(1)}>
             room 1
           </div>
@@ -54,15 +54,17 @@ const ChatRoom = (props) => {
             room 4
           </div>
         </div>
-        <div className="col-span-1 border border-black">
-          <div className="p-2 border m-2 rounded-sm grid place-items-center">online users</div>
+        <div className="col-span-1 border border-black  h-[80vh] ">
+          <div className="p-2 border m-2 rounded-sm grid place-items-center bg-gray-200">online users</div>
         </div>
-        <div className="col-span-2 border border-black ">
-          <div> chat area</div>
-          {messageList &&
-            messageList.map((item, index) => {
-              return <div key={index}> {item}</div>
-            })}
+        <div className="col-span-2 border border-black  h-[80vh]">
+          <div className="p-2 border m-2 rounded-sm grid place-items-center bg-gray-200"> chat area</div>
+          <div className="p-2 border m-2 rounded-sm grid place-items-center h-[60vh] overflow-auto">
+            {messageList &&
+              messageList.map((item, index) => {
+                return <div key={index}> {item}</div>
+              })}
+          </div>
           <div className="grid place-items-center">
             <div>
               <input ref={inputRef} className="border border-black" type="text" placeholder="" />
