@@ -7,6 +7,8 @@ const Dashboard = (props) => {
   return (
     <HomeLayout>
       <h2>Dashboard</h2>
+      <h2>todo</h2>
+      <h4>clean code</h4>
     </HomeLayout>
   )
 }
