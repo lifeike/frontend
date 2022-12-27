@@ -40,20 +40,24 @@ const ChatRoom = (props) => {
       <h2>for demonstration purpose, init WebSocket in this component only</h2>
       <div className="w-full border border-black grid grid-cols-4">
         <div className="col-span-1 border border-black">
-          <div className="p-2 border m-2 rounded-sm" onClick={() => joinRoom(1)}>
+          <div className="p-2 border m-2 rounded-sm grid place-items-center">room list</div>
+          <div className="p-2 border m-2 rounded-sm grid place-items-center" onClick={() => joinRoom(1)}>
             room 1
           </div>
-          <div className="p-2 border m-2 rounded-sm" onClick={() => joinRoom(2)}>
+          <div className="p-2 border m-2 rounded-sm grid place-items-center" onClick={() => joinRoom(2)}>
             room 2
           </div>
-          <div className="p-2 border m-2 rounded-sm" onClick={() => joinRoom(3)}>
+          <div className="p-2 border m-2 rounded-sm grid place-items-center" onClick={() => joinRoom(3)}>
             room 3
           </div>
-          <div className="p-2 border m-2 rounded-sm" onClick={() => joinRoom(4)}>
+          <div className="p-2 border m-2 rounded-sm grid place-items-center" onClick={() => joinRoom(4)}>
             room 4
           </div>
         </div>
-        <div className="col-span-3 border border-black ">
+        <div className="col-span-1 border border-black">
+          <div className="p-2 border m-2 rounded-sm grid place-items-center">online users</div>
+        </div>
+        <div className="col-span-2 border border-black ">
           <div> chat area</div>
           {messageList &&
             messageList.map((item, index) => {
