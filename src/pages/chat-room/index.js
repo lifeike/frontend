@@ -29,7 +29,7 @@ const ChatRoom = (props) => {
     if (roomNumber && currentRoom == 0) {
       ws.send(JSON.stringify({ meta: "join", room: roomNumber, message: "I have joined" }))
     } else if (roomNumber && roomNumber != currentRoom) {
-      ws.send(JSON.stringify({ meta: "leave", room: roomNumber, message: "I have left" }))
+      ws.send(JSON.stringify({ meta: "leave", room: currentRoom, message: "I have left" }))
       ws.send(JSON.stringify({ meta: "join", room: roomNumber, message: "I have joined" }))
     }
   }
@@ -54,16 +54,20 @@ const ChatRoom = (props) => {
             room 4
           </div>
         </div>
-        <div className="col-span-3 border border-black">
+        <div className="col-span-3 border border-black ">
           <div> chat area</div>
           {messageList &&
             messageList.map((item, index) => {
               return <div key={index}> {item}</div>
             })}
-          <input ref={inputRef} className="border border-black" type="text" placeholder="" />
-          <button className="bg-gray-400 p-2" onClick={sendMessage}>
-            send message
-          </button>
+          <div className="grid place-items-center">
+            <div>
+              <input ref={inputRef} className="border border-black" type="text" placeholder="" />
+              <button className="bg-gray-400 p-2" onClick={sendMessage}>
+                send message
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </HomeLayout>
