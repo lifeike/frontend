@@ -6,13 +6,16 @@ const ChatRoom = (props) => {
   const [roomId, setroomId] = useState()
   const inputRef = useRef(null)
   const [ws, setWs] = useState(new WebSocket("ws://localhost:8080"))
+  const [messageList, setMessageList] = useState([])
 
   useEffect(() => {
     ws.onopen = (event) => {
       ws.send(JSON.stringify({ type: "new connection", payload: props.user }))
     }
     ws.onmessage = function (message) {
-      console.log(message.data)
+      console.log(message.data.message)
+      setMessageList([...messageList, message.data.message])
+      console.log(messageList)
     }
     //clean up function
     return () => ws.close()
@@ -49,6 +52,10 @@ const ChatRoom = (props) => {
         </div>
         <div className="col-span-3 border border-black">
           <div> chat area</div>
+          {messageList &&
+            messageList.map((item, index) => {
+              return <div key={index}> {item}</div>
+            })}
           <input ref={inputRef} className="border border-black" type="text" placeholder="" />
           <button className="bg-gray-400 p-2" onClick={sendMessage}>
             send message
