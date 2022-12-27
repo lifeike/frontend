@@ -1,5 +1,5 @@
 //backend api
-export const baseURL = process.env.NODE_ENV == "development" ? "http://localhost:3000/api/localhost" : "https://main.d2opyrywnuqr8v.amplifyapp.com/"
+export const baseURL = process.env.NODE_ENV == "development" ? "http://localhost:3000/api/localhost" : "http://localhost:8080"
 
 //configure setupProxy.js
 //other api 1
