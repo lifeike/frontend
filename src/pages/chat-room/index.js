@@ -3,11 +3,14 @@ import { connect } from "react-redux"
 import HomeLayout from "@/components/layout/HomeLayout"
 
 const ChatRoom = (props) => {
-  const [roomId, setroomId] = useState()
+  // const [roomId, setroomId] = useState()
   const inputRef = useRef(null)
-  let ws = new WebSocket("ws://localhost:8080")
+  let roomId = 0
+  let ws = null
 
   useEffect(() => {
+    console.log("only once")
+    ws = new WebSocket("ws://localhost:8080")
     ws.onopen = (event) => {
       ws.send(JSON.stringify({ type: "new connection", payload: props.user }))
     }
@@ -23,7 +26,8 @@ const ChatRoom = (props) => {
   }
 
   const joinRoom = async (roomId) => {
-    setroomId(roomId)
+    // setroomId(roomId)
+    roomId = roomId
     console.log(ws)
     ws.send(JSON.stringify({ meta: "join", room: roomId, message: "I have joined" }))
   }
