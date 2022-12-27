@@ -21,7 +21,7 @@ const ChatRoom = (props) => {
   }, [])
 
   const sendMessage = async () => {
-    ws.send(JSON.stringify({ meta: "message", room: roomId, message: inputRef.current.value }))
+    ws.send(JSON.stringify({ meta: "message", room: currentRoom, message: inputRef.current.value }))
   }
 
   const joinRoom = async (roomNumber) => {
@@ -29,7 +29,8 @@ const ChatRoom = (props) => {
     if (roomNumber && currentRoom == 0) {
       ws.send(JSON.stringify({ meta: "join", room: roomNumber, message: "I have joined" }))
     } else if (roomNumber && roomNumber != currentRoom) {
-      ws.send(JSON.stringify({ meta: "leave", room: roomNumber, message: "I have joined" }))
+      ws.send(JSON.stringify({ meta: "leave", room: roomNumber, message: "I have left" }))
+      ws.send(JSON.stringify({ meta: "join", room: roomNumber, message: "I have joined" }))
     }
   }
 
