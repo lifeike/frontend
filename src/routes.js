@@ -50,14 +50,14 @@ const RouteTable = (props) => {
           </RequireAuth>
         }
       />
-      <Route
+      {/* <Route
         path="/upload"
         element={
           <RequireAuth>
             <Upload />
           </RequireAuth>
         }
-      />
+      /> */}
       <Route
         path="/google-map-autocomplete"
         element={
