@@ -38,7 +38,6 @@ const ChatRoom = (props) => {
     <HomeLayout>
       <h2>should be under APP component or index.js file.</h2>
       <h2>for demonstration purpose, init WebSocket in this component only</h2>
-      <h2>example: https://github.com/websockets/ws/blob/master/examples/server-stats/index.js</h2>
       <div className="w-full border border-black grid grid-cols-4">
         <div className="col-span-1 border border-black">
           <div className="p-2 border m-2 rounded-sm" onClick={() => joinRoom(1)}>
