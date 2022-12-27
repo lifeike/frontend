@@ -217,6 +217,17 @@ export default function ClippedDrawer({ children }) {
                   </ListItemButton>
                 </ListItem>
               </Link>
+              <Link to="/netdisk">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MissedVideoCallIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"网盘"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             </List>
           </Box>
         </Drawer>
