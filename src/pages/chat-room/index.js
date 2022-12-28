@@ -36,8 +36,10 @@ const ChatRoom = (props) => {
 
   return (
     <HomeLayout>
-      <h2>should be under APP component or index.js file.</h2>
-      <h2>for demonstration purpose, init WebSocket in this component only</h2>
+      <h2>should be under APP component or index.js file. for demonstration purpose, init WebSocket in this component only</h2>
+      <h2>
+        <strong className="text-red-400">API:</strong> https://github.com/websockets/ws#api-docs
+      </h2>
       <h2>
         <strong className="text-red-400">No Server Mode</strong>: https://www.reddit.com/r/node/comments/sfgmum/can_someone_kindly_explain_what_noserver_mode/
       </h2>
