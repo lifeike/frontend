@@ -126,6 +126,17 @@ export default function ClippedDrawer({ children }) {
                   </ListItemButton>
                 </ListItem>
               </Link>
+              <Link to="/multiplayers-game">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MissedVideoCallIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"五子棋"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             </List>
             <Divider />
             <List>
@@ -158,17 +169,6 @@ export default function ClippedDrawer({ children }) {
                       <MissedVideoCallIcon />
                     </ListItemIcon>
                     <ListItemText primary={"弹幕"} />
-                    <Badge badgeContent={0} color="primary"></Badge>
-                  </ListItemButton>
-                </ListItem>
-              </Link>
-              <Link to="/multiplayers-game">
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <MissedVideoCallIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={"五子棋"} />
                     <Badge badgeContent={0} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>

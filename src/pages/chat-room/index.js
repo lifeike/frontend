@@ -5,7 +5,7 @@ import HomeLayout from "@/components/layout/HomeLayout"
 const ChatRoom = (props) => {
   const [currentRoom, setcurrentRoom] = useState(0)
   const inputRef = useRef(null)
-  const [ws, setWs] = useState(new WebSocket("ws://localhost:8080"))
+  const [ws, setWs] = useState(new WebSocket("ws://localhost:8081"))
   const [messageList, setMessageList] = useState([])
 
   useEffect(() => {
