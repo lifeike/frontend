@@ -21,6 +21,7 @@ import RssFeedIcon from "@mui/icons-material/RssFeed"
 import MapIcon from "@mui/icons-material/Map"
 import MissedVideoCallIcon from "@mui/icons-material/MissedVideoCall"
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf"
+import VideogameAssetIcon from "@mui/icons-material/VideogameAsset"
 import Badge from "@mui/material/Badge"
 
 const drawerWidth = 240
@@ -130,7 +131,7 @@ export default function ClippedDrawer({ children }) {
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      <MissedVideoCallIcon />
+                      <VideogameAssetIcon />
                     </ListItemIcon>
                     <ListItemText primary={"五子棋"} />
                     <Badge badgeContent={0} color="primary"></Badge>
