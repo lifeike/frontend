@@ -12,6 +12,7 @@ import GoogleMapAutoComplete from "@/pages/googleMap.js"
 import ChatRoom from "@/pages/chat-room"
 import Blog from "@/pages/blog"
 import Pdf from "@/pages/pdf"
+import GoGame from "@/pages/goGame"
 
 function RequireAuth({ children }) {
   const location = useLocation()
@@ -71,6 +72,14 @@ const RouteTable = (props) => {
         element={
           <RequireAuth>
             <ChatRoom />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/multiplayers-game"
+        element={
+          <RequireAuth>
+            <GoGame />
           </RequireAuth>
         }
       />
