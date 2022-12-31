@@ -229,6 +229,17 @@ export default function ClippedDrawer({ children }) {
                   </ListItemButton>
                 </ListItem>
               </Link>
+              <Link to="/chart">
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <MissedVideoCallIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={"Microsoft visio (rxjs)"} />
+                    <Badge badgeContent={0} color="primary"></Badge>
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             </List>
           </Box>
         </Drawer>
