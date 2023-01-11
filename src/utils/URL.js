@@ -1,5 +1,6 @@
 //backend api
-export const baseURL = process.env.NODE_ENV == "development" ? "http://localhost:3000/api/localhost" : "http://3.82.218.65/"
+export const baseURL =
+  process.env.NODE_ENV == "development" ? "http://localhost:3000/api/localhost" : " https://cors-everywhere.herokuapp.com/http://3.82.218.65/"
 
 //configure setupProxy.js
 //other api 1
