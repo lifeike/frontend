@@ -2,12 +2,12 @@ const { createProxyMiddleware } = require("http-proxy-middleware")
 
 module.exports = function (app) {
   app.use(
-    "/api/v1",
+    "/api/remote",
     createProxyMiddleware({
-      target: "http://ec2-44-202-163-115.compute-1.amazonaws.com",
+      target: "http://3.82.218.65/",
       changeOrigin: true,
       pathRewrite: {
-        "^/api/v1": "",
+        "^/api/remote": "",
       },
     })
   ),
