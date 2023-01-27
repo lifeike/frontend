@@ -1,12 +1,11 @@
 import Loading from "./components/Loading"
 import RouteTable from "./routes"
-import { ToastContainer } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+import { Toaster } from "react-hot-toast"
 
 function App() {
   return (
     <>
-      <ToastContainer />
+      <Toaster />
       <Loading />
       <RouteTable />
     </>

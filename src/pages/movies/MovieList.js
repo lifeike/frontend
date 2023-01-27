@@ -14,7 +14,7 @@ import DeleteIcon from "@mui/icons-material/Delete"
 import Typography from "@mui/material/Typography"
 import Pagination from "@mui/material/Pagination"
 import Stack from "@mui/material/Stack"
-import { toast } from "react-toastify"
+import toast from "react-hot-toast"
 
 const MovieList = (props) => {
   const navigate = useNavigate()

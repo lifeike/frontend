@@ -8,7 +8,7 @@ import Button from "@mui/material/Button"
 import DeleteIcon from "@mui/icons-material/Delete"
 import SendIcon from "@mui/icons-material/Send"
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye"
-import { toast } from "react-toastify"
+import toast from "react-hot-toast"
 
 function SignUp(props) {
   const [showPassword, setShowPassword] = useState(true)

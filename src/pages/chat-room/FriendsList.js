@@ -21,7 +21,7 @@ import PhoneIcon from "@mui/icons-material/Phone"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import PersonPinIcon from "@mui/icons-material/PersonPin"
 import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined"
-import { toast } from "react-toastify"
+import toast from "react-hot-toast"
 
 const FriendsList = (props) => {
   const [value, setValue] = React.useState(0)

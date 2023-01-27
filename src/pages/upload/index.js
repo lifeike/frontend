@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone"
 import { connect } from "react-redux"
 import * as actionCreators from "@/store/actionCreators/upload"
 import HomeLayout from "@/components/layout/HomeLayout"
-import { toast } from "react-toastify"
+import toast from "react-hot-toast"
 import Button from "@mui/material/Button"
 
 function Upload(props) {

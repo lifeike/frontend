@@ -5,7 +5,7 @@ import moment from "moment"
 import { baseURL } from "./URL"
 import * as session from "@/utils/session"
 import store from "@/store"
-import { toast, ToastContainer } from "react-toastify"
+import toast from "react-hot-toast"
 
 // create an axios instance
 const service = axios.create({
