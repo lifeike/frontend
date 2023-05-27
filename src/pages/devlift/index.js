@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, memo } from "react"
 import HomeLay from "@/components/layout/HomeLayout"
-import { doc, getFirestore, collection, getDoc } from "firebase/firestore"
+import { doc, getFirestore, collection, getDoc, Firestore } from "firebase/firestore"
 import { FirestoreProvider, useFirestoreDocData, useFirestore, useFirestoreCollection, useFirebaseApp } from "reactfire"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
@@ -22,19 +22,14 @@ const rows = [
 ]
 
 const DevLift = (props) => {
+  const fireStore = useFirestore()
   // set up query
-  const docRef = doc(useFirestore(), "movies", "4eO9e19BjNPaUKeSMeY3")
+  const docRef = doc(fireStore, "movies", "4eO9e19BjNPaUKeSMeY3")
   // const { status, data } = useFirestoreDocData(docRef)
   // console.log(data)
-  const colRef = collection(useFirestore(), "movies")
+  const colRef = collection(fireStore, "movies")
   const { status, data } = useFirestoreCollection(colRef)
   console.log(data?.docs)
-  // console.log(data.docs)
-
-  // easily check the loading status
-  if (status === "loading") {
-    return <p>Fetching burrito flavor...</p>
-  }
 
   return (
     <HomeLay>
@@ -51,17 +46,18 @@ const DevLift = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.name} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
-              </TableRow>
-            ))}
+            {data?.docs > 0 &&
+              data?.docs.map((row, index) => (
+                <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                  <TableCell component="th" scope="row">
+                    {row?._document?.data?.value?.mapValue?.fields["Creative Type"]}
+                  </TableCell>
+                  <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["Director"]}</TableCell>
+                  <TableCell align="right">{row.fat}</TableCell>
+                  <TableCell align="right">{row.carbs}</TableCell>
+                  <TableCell align="right">{row.protein}</TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>
