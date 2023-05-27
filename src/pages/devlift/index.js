@@ -27,6 +27,7 @@ const DevLift = (props) => {
 
   return (
     <HomeLay>
+      <RatingModal ref={rateRef} />
       <Typography variant="h4" gutterBottom>
         DevLift Real-time Rating
       </Typography>
@@ -58,7 +59,9 @@ const DevLift = (props) => {
                   <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["IMDB Rating"]["doubleValue"]}</TableCell>
                   <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["IMDB Votes"]["integerValue"]}</TableCell>
                   <TableCell align="right">
-                    <ThumbUpIcon />
+                    <ThumbUpIcon
+                      onClick={() => rateRef.current.handleClickOpen(row.id, row?._document?.data?.value?.mapValue?.fields["Title"]["stringValue"])}
+                    />
                   </TableCell>
                 </TableRow>
               ))}
