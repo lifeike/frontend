@@ -1,13 +1,16 @@
 import React, { useState, useRef, useEffect, memo } from "react"
 import HomeLay from "@/components/layout/HomeLayout"
-import { doc, getFirestore } from "firebase/firestore"
+import { doc, getFirestore, collection, getDoc } from "firebase/firestore"
 import { FirestoreProvider, useFirestoreDocData, useFirestore, useFirestoreCollection, useFirebaseApp } from "reactfire"
 
 const DevLift = (props) => {
   // set up query
-  const burritoRef = doc(useFirestore(), "movies", "4eO9e19BjNPaUKeSMeY3")
-  const { status, data } = useFirestoreDocData(burritoRef)
-  console.log(data)
+  const docRef = doc(useFirestore(), "movies", "4eO9e19BjNPaUKeSMeY3")
+  // const { status, data } = useFirestoreDocData(docRef)
+  // console.log(data)
+  const colRef = collection(useFirestore(), "movies")
+  const { status, data } = useFirestoreCollection(colRef)
+  console.log(data.docs)
 
   // easily check the loading status
   if (status === "loading") {
