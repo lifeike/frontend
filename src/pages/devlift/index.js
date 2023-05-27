@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, memo } from "react"
 import ThumbUpIcon from "@mui/icons-material/ThumbUp"
+import { Typography } from "@mui/material"
 import HomeLay from "@/components/layout/HomeLayout"
 import { doc, getFirestore, collection, getDoc, Firestore } from "firebase/firestore"
 import { FirestoreProvider, useFirestoreDocData, useFirestore, useFirestoreCollection, useFirebaseApp } from "reactfire"
@@ -23,7 +24,9 @@ const DevLift = (props) => {
 
   return (
     <HomeLay>
-      <h2>DevLift</h2>
+      <Typography variant="h4" gutterBottom>
+        DevLift Rating
+      </Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
