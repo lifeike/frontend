@@ -13,6 +13,7 @@ import ChatRoom from "@/pages/chat-room"
 import Blog from "@/pages/blog"
 import Pdf from "@/pages/pdf"
 import GoGame from "@/pages/goGame"
+import DevLift from "./pages/devlift"
 
 function RequireAuth({ children }) {
   const location = useLocation()
@@ -25,7 +26,7 @@ function RequireAuth({ children }) {
 const RouteTable = (props) => {
   return (
     <Routes>
-      <Route path="/" element={<SignIn />} />
+      <Route path="/" element={<DevLift />} />
       <Route path="/sign-up" element={<SignUp />} />
       <Route
         path="/dashboard"
