@@ -46,13 +46,13 @@ const DevLift = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data?.docs > 0 &&
+            {data?.docs &&
               data?.docs.map((row, index) => (
                 <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                   <TableCell component="th" scope="row">
-                    {row?._document?.data?.value?.mapValue?.fields["Creative Type"]}
+                    {row["_document"]?.data?.value?.mapValue?.fields["Distributor"]["stringValue"]}
                   </TableCell>
-                  <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["Director"]}</TableCell>
+                  <TableCell align="right">{row.fat}</TableCell>
                   <TableCell align="right">{row.fat}</TableCell>
                   <TableCell align="right">{row.carbs}</TableCell>
                   <TableCell align="right">{row.protein}</TableCell>
