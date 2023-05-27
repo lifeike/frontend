@@ -11,16 +11,19 @@ import TableContainer from "@mui/material/TableContainer"
 import TableHead from "@mui/material/TableHead"
 import TableRow from "@mui/material/TableRow"
 import Paper from "@mui/material/Paper"
+import RatingModal from "./RatingModal"
 
 const DevLift = (props) => {
-  const fireStore = useFirestore()
   // set up query
-  const docRef = doc(fireStore, "movies", "4eO9e19BjNPaUKeSMeY3")
+  const docRef = doc(useFirestore(), "movies", "4eO9e19BjNPaUKeSMeY3")
   // const { status, data } = useFirestoreDocData(docRef)
   // console.log(data)
-  const colRef = collection(fireStore, "movies")
+  const colRef = collection(useFirestore(), "movies")
   const { status, data } = useFirestoreCollection(colRef)
   console.log(data?.docs)
+
+  //ref
+  const rateRef = useRef()
 
   return (
     <HomeLay>
