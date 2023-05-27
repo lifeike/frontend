@@ -25,7 +25,7 @@ const DevLift = (props) => {
   return (
     <HomeLay>
       <Typography variant="h4" gutterBottom>
-        DevLift Rating
+        DevLift Real-time Rating
       </Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
