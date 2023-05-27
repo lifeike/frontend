@@ -133,7 +133,7 @@ export default function ClippedDrawer({ children }) {
                     <ListItemIcon>
                       <VideogameAssetIcon />
                     </ListItemIcon>
-                    <ListItemText primary={"五子棋"} />
+                    <ListItemText primary={"Multiplayers Game "} />
                     <Badge badgeContent={0} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>
@@ -169,7 +169,7 @@ export default function ClippedDrawer({ children }) {
                     <ListItemIcon>
                       <MissedVideoCallIcon />
                     </ListItemIcon>
-                    <ListItemText primary={"弹幕"} />
+                    <ListItemText primary={"Bullet Chat"} />
                     <Badge badgeContent={0} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>
@@ -180,7 +180,7 @@ export default function ClippedDrawer({ children }) {
                     <ListItemIcon>
                       <MissedVideoCallIcon />
                     </ListItemIcon>
-                    <ListItemText primary={"协同编辑文档"} />
+                    <ListItemText primary={"CMS"} />
                     <Badge badgeContent={0} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>
@@ -191,7 +191,7 @@ export default function ClippedDrawer({ children }) {
                     <ListItemIcon>
                       <MissedVideoCallIcon />
                     </ListItemIcon>
-                    <ListItemText primary={"体育实时更新(股票)"} />
+                    <ListItemText primary={"Sports New(stocks)"} />
                     <Badge badgeContent={0} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>
@@ -202,7 +202,7 @@ export default function ClippedDrawer({ children }) {
                     <ListItemIcon>
                       <MissedVideoCallIcon />
                     </ListItemIcon>
-                    <ListItemText primary={"视频会议聊天"} />
+                    <ListItemText primary={"Video Chat"} />
                     <Badge badgeContent={0} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>
@@ -213,7 +213,7 @@ export default function ClippedDrawer({ children }) {
                     <ListItemIcon>
                       <MissedVideoCallIcon />
                     </ListItemIcon>
-                    <ListItemText primary={"智能家居"} />
+                    <ListItemText primary={"Smart Home"} />
                     <Badge badgeContent={0} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>
@@ -224,7 +224,7 @@ export default function ClippedDrawer({ children }) {
                     <ListItemIcon>
                       <MissedVideoCallIcon />
                     </ListItemIcon>
-                    <ListItemText primary={"网盘"} />
+                    <ListItemText primary={"Net Disk"} />
                     <Badge badgeContent={0} color="primary"></Badge>
                   </ListItemButton>
                 </ListItem>
