@@ -5,7 +5,7 @@ import { FirestoreProvider, useFirestoreDocData, useFirestore, useFirebaseApp } 
 
 const DevLift = (props) => {
   // easily access the Firestore library
-  const burritoRef = doc(useFirestore(), "movies")
+  const burritoRef = doc(useFirestore(), "movies", "4eO9e19BjNPaUKeSMeY3")
 
   // subscribe to a document for realtime updates. just one line!
   const { status, data } = useFirestoreDocData(burritoRef)
