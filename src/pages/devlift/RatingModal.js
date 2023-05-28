@@ -1,21 +1,14 @@
 import React, { useState, useImperativeHandle } from "react"
-import FormGroup from "@mui/material/FormGroup"
 import { Typography } from "@mui/material"
-import FormControlLabel from "@mui/material/FormControlLabel"
-import Checkbox from "@mui/material/Checkbox"
 import Rating from "@mui/material/Rating"
-import Box from "@mui/material/Box"
-import TextField from "@mui/material/TextField"
 import Button from "@mui/material/Button"
 import { toast } from "react-hot-toast"
-import { doc, getFirestore, collection, getDoc, updateDoc, Firestore } from "firebase/firestore"
-import { FirestoreProvider, useFirestoreDocData, useFirestore, useFirestoreCollection, useFirebaseApp } from "reactfire"
+import { doc, updateDoc } from "firebase/firestore"
+import { useFirestore } from "reactfire"
 import Dialog from "@mui/material/Dialog"
 import DialogActions from "@mui/material/DialogActions"
 import DialogContent from "@mui/material/DialogContent"
-import DialogContentText from "@mui/material/DialogContentText"
 import DialogTitle from "@mui/material/DialogTitle"
-import { ConstructionOutlined } from "@mui/icons-material"
 
 const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   const [open, setOpen] = React.useState(false)
