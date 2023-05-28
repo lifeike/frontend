@@ -53,7 +53,12 @@ const DevLift = (props) => {
                   <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["Title"]["stringValue"]}</TableCell>
                   <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["US Gross"]["integerValue"]}</TableCell>
                   <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["Worldwide Gross"]["integerValue"]}</TableCell>
-                  <TableCell align="right">{Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Rating"])[0]}</TableCell>
+                  <TableCell align="right">
+                    {(
+                      Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Rating"])[0] /
+                      Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Votes"])[0]
+                    ).toFixed(1)}
+                  </TableCell>
                   <TableCell align="right">{Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Votes"])[0]}</TableCell>
                   <TableCell align="right">
                     <ThumbUpIcon onClick={() => rateRef.current.handleClickOpen(row)} />

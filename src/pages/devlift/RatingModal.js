@@ -15,6 +15,7 @@ import DialogActions from "@mui/material/DialogActions"
 import DialogContent from "@mui/material/DialogContent"
 import DialogContentText from "@mui/material/DialogContentText"
 import DialogTitle from "@mui/material/DialogTitle"
+import { ConstructionOutlined } from "@mui/icons-material"
 
 const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   const [open, setOpen] = React.useState(false)
@@ -28,19 +29,24 @@ const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   const handleClickOpen = (row) => {
     setDocRef(doc(fireStore, "movies", row.id))
     setName(row?._document?.data?.value?.mapValue?.fields["Title"]["stringValue"])
-    setRating(row?._document?.data?.value?.mapValue?.fields["IMDB Rating"]["doubleValue"])
-    setVotes(row?._document?.data?.value?.mapValue?.fields["IMDB Votes"]["integerValue"])
+    setRating(Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Rating"])[0])
+    setVotes(Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Votes"])[0])
     setOpen(true)
   }
+
   const handleClose = () => setOpen(false)
   useImperativeHandle(ref, () => ({
     handleClickOpen,
   }))
+
   const [value, setValue] = React.useState(0)
   const rate = async () => {
+    console.log(rating)
+    console.log(value)
+    console.log(rating + value)
     updateDoc(docRef, {
-      "IMDB Rating": rating == null ? value : rating + value,
-      "IMDB Votes": votes == null ? 1 : votes + 1,
+      "IMDB Rating": parseFloat(rating) + parseFloat(value ? value : 0),
+      "IMDB Votes": parseInt(votes) + 1,
     })
       .then((response) => {
         toast.success("Thanks for voting.")
@@ -48,6 +54,7 @@ const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
       .catch((error) => {
         console.log(error.message)
       })
+    setValue(0)
     handleClose()
   }
 
