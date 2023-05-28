@@ -18,6 +18,7 @@
 - Same user should only be able to add rating for the first time or modify their ratings, however, I did not implmenet this business logic on it, as this is more a demo project
 - I could also use state management tools with reactfire. However, for this small demo without complex data structure, I chose to keep this simple and clear. No matter redux/redux-saga/mobx/zustand, I can use them all, also I can implement redux manually which means I know how state management tools work internally.
 - This is the first time I use firebase and reactfire. however, firebase looks like an integration of Auth0 SSO+web socket+ Mongo altas, which I have used for years.
+- The reason why I chose using leaderboard as a demo, simply because I only have some movie mock data on my hand.And I personally believe this should be good enough to demonstrate reactfire real-time features, when you open multiple instances of this app from different browsers, ratings would be changed in real time.
 
 ## Development
 
