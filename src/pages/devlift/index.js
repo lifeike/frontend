@@ -57,7 +57,14 @@ const DevLift = (props) => {
                   <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["IMDB Votes"]["integerValue"]}</TableCell>
                   <TableCell align="right">
                     <ThumbUpIcon
-                      onClick={() => rateRef.current.handleClickOpen(row.id, row?._document?.data?.value?.mapValue?.fields["Title"]["stringValue"])}
+                      onClick={() =>
+                        rateRef.current.handleClickOpen(
+                          row.id,
+                          row?._document?.data?.value?.mapValue?.fields["Title"]["stringValue"],
+                          row?._document?.data?.value?.mapValue?.fields["IMDB Rating"]["doubleValue"],
+                          row?._document?.data?.value?.mapValue?.fields["IMDB Votes"]["integerValue"]
+                        )
+                      }
                     />
                   </TableCell>
                 </TableRow>

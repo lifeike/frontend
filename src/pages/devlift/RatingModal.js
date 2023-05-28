@@ -31,9 +31,11 @@ const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   useImperativeHandle(ref, () => ({
     handleClickOpen,
   }))
+  const [value, setValue] = React.useState(0)
   const rate = async () => {
     updateDoc(docRef, {
-      "IMDB Votes": "Mississippi Mermaid",
+      "IMDB Rating": value,
+      // "IMDB Votes": "Mississippi Mermaid",
     })
       .then((response) => {
         toast.success(`${name} Update.`)
@@ -54,7 +56,7 @@ const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
               {name}
             </Typography>
             <div>
-              <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
+              <Rating value={value} onChange={(event, newValue) => setValue(newValue)} name="half-rating" defaultValue={2.5} precision={0.5} />
             </div>
           </div>
         </DialogContent>
