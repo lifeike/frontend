@@ -8,6 +8,8 @@ import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
 import Button from "@mui/material/Button"
 import { toast } from "react-hot-toast"
+import { doc, getFirestore, collection, getDoc, updateDoc, Firestore } from "firebase/firestore"
+import { FirestoreProvider, useFirestoreDocData, useFirestore, useFirestoreCollection, useFirebaseApp } from "reactfire"
 import Dialog from "@mui/material/Dialog"
 import DialogActions from "@mui/material/DialogActions"
 import DialogContent from "@mui/material/DialogContent"
@@ -18,6 +20,8 @@ const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   const [open, setOpen] = React.useState(false)
   const [id, setId] = useState()
   const [name, setName] = useState("")
+  const firestore = useFirestore()
+  const docRef = doc(firestore, "movies", id)
 
   const handleClickOpen = (id, movieTitle) => {
     setId(id)
