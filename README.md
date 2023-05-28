@@ -11,7 +11,9 @@
 ## For Code Reviewers
 
 - For faster development, I use my own template directly which is already deployed online, so may see some other source code in this repo which is part of template, the only file for this is demo project is
-  - [/src/pages/devlift](https://github.com/lifeike/frontend/tree/main/src/pages/devlift)
+
+  - <a href="https://github.com/lifeike/frontend/tree/main/src/pages/devlift" target="_blank">/src/pages/devlift</a>
+
 - To use this leaderboard, simply click rate button to add your rating, new movie list will be ranked from highest to lowest
 
 ## Other thoughts
