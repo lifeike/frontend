@@ -17,7 +17,6 @@ const DevLift = (props) => {
   // set up query
   const colRef = collection(useFirestore(), "movies")
   const { status, data } = useFirestoreCollection(colRef)
-  console.log(data?.docs)
 
   //ref
   const rateRef = useRef()
@@ -46,9 +45,12 @@ const DevLift = (props) => {
             {data?.docs &&
               data?.docs
                 .sort(
+                  //sort by average rating
                   (a, b) =>
-                    b?._document?.data?.value?.mapValue?.fields["US Gross"]["integerValue"] -
-                    a?._document?.data?.value?.mapValue?.fields["US Gross"]["integerValue"]
+                    Object.values(b?._document?.data?.value?.mapValue?.fields["IMDB Rating"])[0] /
+                      Object.values(b?._document?.data?.value?.mapValue?.fields["IMDB Votes"])[0] -
+                    Object.values(a?._document?.data?.value?.mapValue?.fields["IMDB Rating"])[0] /
+                      Object.values(a?._document?.data?.value?.mapValue?.fields["IMDB Votes"])[0]
                 )
                 .map((row) => (
                   <TableRow key={row.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
