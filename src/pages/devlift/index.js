@@ -44,8 +44,8 @@ const DevLift = (props) => {
           </TableHead>
           <TableBody>
             {data?.docs &&
-              data?.docs.map((row, index) => (
-                <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+              data?.docs.map((row) => (
+                <TableRow key={row.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                   <TableCell component="th" scope="row">
                     {row?._document?.data?.value?.mapValue?.fields["Distributor"]["stringValue"]}
                   </TableCell>
@@ -56,16 +56,7 @@ const DevLift = (props) => {
                   <TableCell align="right">{Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Rating"])[0]}</TableCell>
                   <TableCell align="right">{Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Votes"])[0]}</TableCell>
                   <TableCell align="right">
-                    <ThumbUpIcon
-                      onClick={() =>
-                        rateRef.current.handleClickOpen(
-                          row.id,
-                          row?._document?.data?.value?.mapValue?.fields["Title"]["stringValue"],
-                          row?._document?.data?.value?.mapValue?.fields["IMDB Rating"]["doubleValue"],
-                          row?._document?.data?.value?.mapValue?.fields["IMDB Votes"]["integerValue"]
-                        )
-                      }
-                    />
+                    <ThumbUpIcon onClick={() => rateRef.current.handleClickOpen(row)} />
                   </TableCell>
                 </TableRow>
               ))}

@@ -25,9 +25,11 @@ const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   const fireStore = useFirestore()
   const [docRef, setDocRef] = useState(null)
 
-  const handleClickOpen = (id, movieTitle, rating, votes) => {
-    setDocRef(doc(fireStore, "movies", id))
-    setName(movieTitle)
+  const handleClickOpen = (row) => {
+    setDocRef(doc(fireStore, "movies", row.id))
+    setName(row?._document?.data?.value?.mapValue?.fields["Title"]["stringValue"])
+    setRating(row?._document?.data?.value?.mapValue?.fields["IMDB Rating"]["doubleValue"])
+    setVotes(row?._document?.data?.value?.mapValue?.fields["IMDB Votes"]["integerValue"])
     setOpen(true)
   }
   const handleClose = () => setOpen(false)
