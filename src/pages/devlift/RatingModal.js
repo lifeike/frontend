@@ -38,7 +38,7 @@ const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
       // "IMDB Votes": "Mississippi Mermaid",
     })
       .then((response) => {
-        toast.success(`${name} Update.`)
+        toast.success("Thanks for voting.")
       })
       .catch((error) => {
         console.log(error.message)
