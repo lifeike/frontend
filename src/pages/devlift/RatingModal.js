@@ -37,7 +37,7 @@ const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   const [value, setValue] = React.useState(0)
   const rate = async () => {
     updateDoc(docRef, {
-      "IMDB Rating": value,
+      "IMDB Rating": rating == null ? value : rating + value,
       "IMDB Votes": votes == null ? 1 : votes + 1,
     })
       .then((response) => {
