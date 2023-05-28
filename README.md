@@ -10,7 +10,7 @@
 
 ## For Code Reviewers
 
-- For faster development, I use my own template directly which is already deployed online, so you may see some other source code in this repo which is part of template, the only file for this is demo project is [/src/pages/devlift](https://github.com/lifeike/frontend/tree/main/src/pages/devlift) , you can open this path in new tab to review which could also save your time.
+- For faster development, I use my own template directly which is already deployed online, so you may see some other source code in this repo which is part of template, the only file for this is demo project is [/src/pages/devlift](https://github.com/lifeike/frontend/tree/main/src/pages/devlift) , you can open this path in new tab to review which could save the efforts to download and run this locally.
 - To use this leaderboard, simply click rate button to add your rating, new movie list will be sorted by its rating from highest to lowest
 
 ## Other thoughts
