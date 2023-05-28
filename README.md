@@ -18,10 +18,11 @@
 
 - Same user should only be able to add rating for the first time or modify their ratings, however, I did not implmenet this business logic on it, as this is more a demo project
 - I could also use state management tools with reactfire. However,
+- This is the first time I use firebase and reactfire. however, firebase looks like a integration of Auth0 SSO+web socket+altas, which I have used for years.
 
 ## Development
 
-- Ask mobile developers what is firebase 1h
+- Ask mobile developers(colleagues) what is firebase 1h
 - Read some documentation about reactfire and firebase 1h
 - Load some mock data from mongo atlas to firestore 1h
 - Writing source code 4h
