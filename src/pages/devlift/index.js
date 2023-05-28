@@ -26,7 +26,7 @@ const DevLift = (props) => {
     <HomeLay>
       <RatingModal ref={rateRef} />
       <Typography variant="h4" gutterBottom>
-        DevLift Real-time Rating
+        DevLift Real-time Leaderboard
       </Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
