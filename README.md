@@ -16,7 +16,7 @@
 ## Other thoughts
 
 - Same user should only be able to add rating for the first time or modify their ratings, however, I did not implmenet this business logic on it, as this is more a demo project
-- I could also use state management tools with reactfire. However, for this small demo without complex data structure, I chose to keep this simply and clear. No matter redux/redux-saga/mobx/zustand, I can use them all, also I can implement redux manually which means I know how state management tools work internally.
+- I could also use state management tools with reactfire. However, for this small demo without complex data structure, I chose to keep this simple and clear. No matter redux/redux-saga/mobx/zustand, I can use them all, also I can implement redux manually which means I know how state management tools work internally.
 - This is the first time I use firebase and reactfire. however, firebase looks like an integration of Auth0 SSO+web socket+ Mongo altas, which I have used for years.
 
 ## Development
