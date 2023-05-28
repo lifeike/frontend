@@ -44,27 +44,33 @@ const DevLift = (props) => {
           </TableHead>
           <TableBody>
             {data?.docs &&
-              data?.docs.map((row) => (
-                <TableRow key={row.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-                  <TableCell component="th" scope="row">
-                    {row?._document?.data?.value?.mapValue?.fields["Distributor"]["stringValue"]}
-                  </TableCell>
-                  <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["Release Date"]["stringValue"]}</TableCell>
-                  <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["Title"]["stringValue"]}</TableCell>
-                  <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["US Gross"]["integerValue"]}</TableCell>
-                  <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["Worldwide Gross"]["integerValue"]}</TableCell>
-                  <TableCell align="right">
-                    {(
-                      Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Rating"])[0] /
-                      Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Votes"])[0]
-                    ).toFixed(1)}
-                  </TableCell>
-                  <TableCell align="right">{Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Votes"])[0]}</TableCell>
-                  <TableCell align="right">
-                    <ThumbUpIcon onClick={() => rateRef.current.handleClickOpen(row)} />
-                  </TableCell>
-                </TableRow>
-              ))}
+              data?.docs
+                .sort(
+                  (a, b) =>
+                    b?._document?.data?.value?.mapValue?.fields["US Gross"]["integerValue"] -
+                    a?._document?.data?.value?.mapValue?.fields["US Gross"]["integerValue"]
+                )
+                .map((row) => (
+                  <TableRow key={row.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                    <TableCell component="th" scope="row">
+                      {row?._document?.data?.value?.mapValue?.fields["Distributor"]["stringValue"]}
+                    </TableCell>
+                    <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["Release Date"]["stringValue"]}</TableCell>
+                    <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["Title"]["stringValue"]}</TableCell>
+                    <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["US Gross"]["integerValue"]}</TableCell>
+                    <TableCell align="right">{row?._document?.data?.value?.mapValue?.fields["Worldwide Gross"]["integerValue"]}</TableCell>
+                    <TableCell align="right">
+                      {(
+                        Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Rating"])[0] /
+                        Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Votes"])[0]
+                      ).toFixed(1)}
+                    </TableCell>
+                    <TableCell align="right">{Object.values(row?._document?.data?.value?.mapValue?.fields["IMDB Votes"])[0]}</TableCell>
+                    <TableCell align="right">
+                      <ThumbUpIcon onClick={() => rateRef.current.handleClickOpen(row)} />
+                    </TableCell>
+                  </TableRow>
+                ))}
           </TableBody>
         </Table>
       </TableContainer>
