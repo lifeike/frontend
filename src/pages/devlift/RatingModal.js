@@ -32,7 +32,6 @@ const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   useImperativeHandle(ref, () => ({
     handleClickOpen,
   }))
-  const [value, setValue] = React.useState(2)
   const rate = async () => {
     updateDoc(docRef, {
       Title: "Mississippi Mermaid",
