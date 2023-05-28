@@ -5,8 +5,8 @@
 - Author : Feeco Li 2023.5.28
 - Email: lifeike67@gmail.com
 - This is realtime movie rating leaderboard using reactfire/react/material UI.
-- [production link](https://main.d3nhqx7mts8be0.amplifyapp.com/)
-- [github link](https://github.com/lifeike/frontend)
+- [Production link](https://main.d3nhqx7mts8be0.amplifyapp.com/)
+- [Github link](https://github.com/lifeike/frontend)
 
 ## For Code Reviewers
 
@@ -17,7 +17,7 @@
 ## Other thoughts
 
 - Same user should only be able to add rating for the first time or modify their ratings, however, I did not implmenet this business logic on it, as this is more a demo project
-- I could also use state management tools with reactfire. However,
+- I could also use state management tools with reactfire. However, for this small demo without complex data structure, I chose to keep this simply and clear. No matter redux/redux-saga/mobx/zustand, I can use them all, also I can implement redux manually which means I know how state management tools work internally.
 - This is the first time I use firebase and reactfire. however, firebase looks like a integration of Auth0 SSO+web socket+altas, which I have used for years.
 
 ## Development
