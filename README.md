@@ -15,6 +15,12 @@
 - Writing source code 4h
 - Documentation 1h
 
-## For Code Review
+## For Code Reviewers
+
+- For faster development, I use my own template directly which is already deployed online, so may see some other source code in this repo which is part of template, the only file for this is demo project is
+  - /src/pages/devlift
 
 ## Other thoughts
+
+- Same user should only be able to add rating for the first time or modify their ratings, however, I did not implmenet this business logic on it, as this is more a demo project
+- I could also use state management tools with reactfire. However,
