@@ -18,23 +18,13 @@ import DialogTitle from "@mui/material/DialogTitle"
 
 const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   const [open, setOpen] = React.useState(false)
-  const [id, setId] = useState()
+  const [id, setId] = useState("")
   const [name, setName] = useState("")
-  const firestore = useFirestore()
-  // const docRef = doc(firestore, "movies", id)
-  updateDoc(docRef, {
-    title: "hello world",
-  })
-    .then((response) => {
-      toast.success(`${name} Update.`)
-    })
-    .catch((error) => {
-      console.log(error.message)
-      handleClose()
-    })
+  const fireStore = useFirestore()
+  const [docRef, setDocRef] = useState(null)
 
   const handleClickOpen = (id, movieTitle) => {
-    setId(id)
+    setDocRef(doc(fireStore, "movies", id))
     setName(movieTitle)
     setOpen(true)
   }
@@ -44,7 +34,15 @@ const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   }))
   const [value, setValue] = React.useState(2)
   const rate = async () => {
-    //
+    updateDoc(docRef, {
+      Title: "Mississippi Mermaid",
+    })
+      .then((response) => {
+        toast.success(`${name} Update.`)
+      })
+      .catch((error) => {
+        console.log(error.message)
+      })
     handleClose()
   }
 
