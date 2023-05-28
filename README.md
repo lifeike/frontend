@@ -4,7 +4,7 @@
 
 - Author : Feeco Li 2023.5.28
 - Email: lifeike67@gmail.com
-- This is realtime movie rating leaderboard using reactfire.
+- This is realtime movie rating leaderboard using reactfire/react/material UI.
 - [production link](https://main.d3nhqx7mts8be0.amplifyapp.com/)
 - [github link](https://github.com/lifeike/frontend)
 
