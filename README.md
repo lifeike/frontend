@@ -10,15 +10,14 @@
 
 ## For Code Reviewers
 
-- For faster development, I use my own template directly which is already deployed online, so may see some other source code in this repo which is part of template, the only file for this is demo project is
-  - [/src/pages/devlift](https://github.com/lifeike/frontend/tree/main/src/pages/devlift)
+- For faster development, I use my own template directly which is already deployed online, so you may see some other source code in this repo which is part of template, the only file for this is demo project is [/src/pages/devlift](https://github.com/lifeike/frontend/tree/main/src/pages/devlift) , you can open this path in new tab to review which could also save your time.
 - To use this leaderboard, simply click rate button to add your rating, new movie list will be sorted by its rating from highest to lowest
 
 ## Other thoughts
 
 - Same user should only be able to add rating for the first time or modify their ratings, however, I did not implmenet this business logic on it, as this is more a demo project
 - I could also use state management tools with reactfire. However, for this small demo without complex data structure, I chose to keep this simply and clear. No matter redux/redux-saga/mobx/zustand, I can use them all, also I can implement redux manually which means I know how state management tools work internally.
-- This is the first time I use firebase and reactfire. however, firebase looks like a integration of Auth0 SSO+web socket+altas, which I have used for years.
+- This is the first time I use firebase and reactfire. however, firebase looks like an integration of Auth0 SSO+web socket+ Mongo altas, which I have used for years.
 
 ## Development
 
