@@ -21,7 +21,17 @@ const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   const [id, setId] = useState()
   const [name, setName] = useState("")
   const firestore = useFirestore()
-  const docRef = doc(firestore, "movies", id)
+  // const docRef = doc(firestore, "movies", id)
+  updateDoc(docRef, {
+    title: "hello world",
+  })
+    .then((response) => {
+      toast.success(`${name} Update.`)
+    })
+    .catch((error) => {
+      console.log(error.message)
+      handleClose()
+    })
 
   const handleClickOpen = (id, movieTitle) => {
     setId(id)
