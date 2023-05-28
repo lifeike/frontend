@@ -19,6 +19,9 @@ import DialogTitle from "@mui/material/DialogTitle"
 const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   const [open, setOpen] = React.useState(false)
   const [name, setName] = useState("")
+  const [rating, setRating] = useState()
+  const [votes, setVotes] = useState()
+
   const fireStore = useFirestore()
   const [docRef, setDocRef] = useState(null)
 
@@ -35,7 +38,7 @@ const CreateRoleModal = React.forwardRef(function AlertDialog(props, ref) {
   const rate = async () => {
     updateDoc(docRef, {
       "IMDB Rating": value,
-      // "IMDB Votes": "Mississippi Mermaid",
+      "IMDB Votes": votes == null ? 1 : votes + 1,
     })
       .then((response) => {
         toast.success("Thanks for voting.")
