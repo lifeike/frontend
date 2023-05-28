@@ -15,8 +15,6 @@ import RatingModal from "./RatingModal"
 
 const DevLift = (props) => {
   // set up query
-  // const docRef = doc(useFirestore(), "movies", "4eO9e19BjNPaUKeSMeY3")
-  // const { status, data } = useFirestoreDocData(docRef)
   const colRef = collection(useFirestore(), "movies")
   const { status, data } = useFirestoreCollection(colRef)
   console.log(data?.docs)
